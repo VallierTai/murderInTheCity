@@ -5,7 +5,11 @@
  */
 package murderinthecity;
 
+import cit260.murderInTheCity.model.Case;
+import cit260.murderInTheCity.model.Game;
+import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Location;
+import cit260.murderInTheCity.model.Player;
 
 /**
  *
@@ -18,10 +22,26 @@ public class MurderInTheCity {
      */
     public static void main(String[] args) {
         Location location = new Location();
-        location.setDescription("This is a default location");
+        location.setDescription("You are in Phoenix, Arizona");
         location.setDoesEvidenceExistHere(true);
         System.out.println(location.toString());
         
+        Game game = new Game();
+        game.setIntroMessage("Welcome to Murder In The City");
+        System.out.println(game.toString());
+        
+        Item murderWeapon = new Item();
+        murderWeapon.setName("Bloody knife");
+        murderWeapon.setDescription("Knife used to kill victim");
+        murderWeapon.setIsEvidence(true);
+        
+        Player player = new Player();
+        player.setInventory(murderWeapon);
+        System.out.println(player.toString());
+        
+        Case caseOne = new Case();
+        caseOne.setName("Case of the Scottsdale scandal");
+        caseOne.setDescription("Scottsdale scandal description");
     }
     
 }
