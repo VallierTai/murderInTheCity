@@ -6,10 +6,14 @@
 package murderinthecity;
 
 import cit260.murderInTheCity.model.Case;
+import cit260.murderInTheCity.model.Characters;
 import cit260.murderInTheCity.model.Game;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Location;
+import cit260.murderInTheCity.model.PhoenixScene;
 import cit260.murderInTheCity.model.Player;
+import cit260.murderInTheCity.model.ScottsdaleScene;
+import cit260.murderInTheCity.model.TempeScene;
 
 /**
  *
@@ -42,6 +46,28 @@ public class MurderInTheCity {
         Case caseOne = new Case();
         caseOne.setName("Case of the Scottsdale scandal");
         caseOne.setDescription("Scottsdale scandal description");
+        
+        PhoenixScene phoenix = new PhoenixScene();
+        phoenix.setEvidenceList("fingerprint");
+        phoenix.setCrimeDescription("homicide in hotel room ");
+        
+        ScottsdaleScene scottsdale = new ScottsdaleScene();
+        scottsdale.setEvidenceList ("shell casing");
+        scottsdale.setCrimeDescription (" bullet wound execution style");
+        
+        TempeScene tempe = new TempeScene ();
+        tempe.setEvidenceList("threatening letter");
+        tempe.setCrimeDescription("stabbing victim");
+        
+        Characters person = new Characters ();
+        person.setDescription(null);
+        person.setSex(null);
+        person.setName(null);
+        
+        
+        
+       
+        
     }
     
 }
