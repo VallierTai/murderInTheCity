@@ -7,6 +7,7 @@ package cit260.murderInTheCity.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import cit260.murderInTheCity.model.Character;
 
 /**
  *

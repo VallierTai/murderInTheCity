@@ -16,7 +16,6 @@ public class Location implements Serializable
 {
   // class instance variables
   private String description;
-  private boolean doesEvidenceExistHere; 
 
     public String getDescription() {
         return description;
@@ -26,16 +25,6 @@ public class Location implements Serializable
         this.description = description;
     }
 
-    public boolean isDoesEvidenceExistHere() {
-        return doesEvidenceExistHere;
-    }
-
-    public void setDoesEvidenceExistHere(boolean doesEvidenceExistHere) {
-        this.doesEvidenceExistHere = doesEvidenceExistHere;
-        
-        
-    }
-
     public Location() {
     }
 
@@ -43,7 +32,6 @@ public class Location implements Serializable
     public int hashCode() {
         int hash = 3;
         hash = 17 * hash + Objects.hashCode(this.description);
-        hash = 17 * hash + (this.doesEvidenceExistHere ? 1 : 0);
         return hash;
     }
 
@@ -59,15 +47,12 @@ public class Location implements Serializable
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (this.doesEvidenceExistHere != other.doesEvidenceExistHere) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "description=" + description + ", doesEvidenceExistHere=" + doesEvidenceExistHere + '}';
+        return "Location{" + "description=" + description + '}';
     }
     
   

@@ -6,43 +6,31 @@
 package cit260.murderInTheCity.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
  *
  * @author Tai
  */
-public class PhoenixScene implements Serializable
+public class PhoenixScene extends Location implements Serializable
 {
-    private String crimeDescription;
-    private String evidenceList;
+    private List<Item> evidenceList;
 
     public PhoenixScene() {
     }
- 
- 
 
-    public String getCrimeDescription() {
-        return crimeDescription;
-    }
-
-    public void setCrimeDescription(String crimeDescription) {
-        this.crimeDescription = crimeDescription;
-    }
-
-    public String getEvidenceList() {
+    public List<Item> getEvidenceList() {
         return evidenceList;
     }
 
-    public void setEvidenceList(String evidenceList) {
+    public void setEvidenceList(List<Item> evidenceList) {
         this.evidenceList = evidenceList;
-        
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 43 * hash + Objects.hashCode(this.crimeDescription);
         hash = 43 * hash + Objects.hashCode(this.evidenceList);
         return hash;
     }
@@ -56,22 +44,14 @@ public class PhoenixScene implements Serializable
             return false;
         }
         final PhoenixScene other = (PhoenixScene) obj;
-        if (!Objects.equals(this.crimeDescription, other.crimeDescription)) {
-            return false;
-        }
         if (!Objects.equals(this.evidenceList, other.evidenceList)) {
             return false;
         }
-        return true;
-        
+        return true;  
     }
 
     @Override
     public String toString() {
-        return "PhoenixScene{" + "crimeDescription=" + crimeDescription + ", evidenceList=" + evidenceList + '}';
+        return "PhoenixScene{evidenceList=" + evidenceList + '}';
     }
- 
- 
- 
- 
 }

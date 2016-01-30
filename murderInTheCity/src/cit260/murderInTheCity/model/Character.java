@@ -12,18 +12,14 @@ import java.util.Objects;
  *
  * @author Tai
  */
-public class Characters implements Serializable{
+public class Character implements Serializable{
     
     private String name;
     private String sex;
     private String description;
 
-    public Characters() {
+    public Character() {
     }
-    
-    
-    
-    
 
     public String getName() {
         return name;
@@ -46,9 +42,7 @@ public class Characters implements Serializable{
     }
 
     public void setDescription(String description) {
-        this.description = description;
-        
-        
+        this.description = description; 
     }
 
     @Override
@@ -68,7 +62,7 @@ public class Characters implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Characters other = (Characters) obj;
+        final Character other = (Character) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -76,8 +70,6 @@ public class Characters implements Serializable{
             return false;
         }
         return Objects.equals(this.description, other.description);
-        
-        
     }
 
     @Override

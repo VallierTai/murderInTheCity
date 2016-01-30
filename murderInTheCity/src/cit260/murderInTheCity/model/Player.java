@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Brad Bastian
  */
-public class Player implements Serializable {
+public class Player extends Character implements Serializable {
     private Item inventory;
 
     public Item getInventory() {

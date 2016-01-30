@@ -6,43 +6,30 @@
 package cit260.murderInTheCity.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
  *
  * @author Tai
  */
-public class ScottsdaleScene implements Serializable{
-    private String crimeDescription;
-    private String evidenceList;
+public class ScottsdaleScene extends Location implements Serializable{
+    private List<Item> evidenceList;
 
     public ScottsdaleScene() {
     }
-    
-    
 
-    public String getCrimeDescription() {
-        return crimeDescription;
-    }
-
-    public void setCrimeDescription(String crimeDescription) {
-        this.crimeDescription = crimeDescription;
-    }
-
-    public String getEvidenceList() {
+    public List<Item> getEvidenceList() {
         return evidenceList;
     }
 
-    public void setEvidenceList(String evidenceList) {
-        this.evidenceList = evidenceList;
-        
-        
+    public void setEvidenceList(List<Item> evidenceList) {
+        this.evidenceList = evidenceList; 
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.crimeDescription);
         hash = 97 * hash + Objects.hashCode(this.evidenceList);
         return hash;
     }
@@ -56,24 +43,14 @@ public class ScottsdaleScene implements Serializable{
             return false;
         }
         final ScottsdaleScene other = (ScottsdaleScene) obj;
-        if (!Objects.equals(this.crimeDescription, other.crimeDescription)) {
-            return false;
-        }
         if (!Objects.equals(this.evidenceList, other.evidenceList)) {
             return false;
         }
-        return true;
-        
-        
+        return true; 
     }
 
     @Override
     public String toString() {
-        return "ScottsdaleScene{" + "crimeDescription=" + crimeDescription + ", evidenceList=" + evidenceList + '}';
+        return "ScottsdaleScene{evidenceList=" + evidenceList + '}';
     }
-    
-    
-    
-    
-    
 }
