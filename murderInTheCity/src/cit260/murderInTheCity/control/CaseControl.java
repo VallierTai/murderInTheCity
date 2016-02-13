@@ -7,6 +7,7 @@ package cit260.murderInTheCity.control;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,5 +47,52 @@ public class CaseControl {
         }
         
         return radius;
+    }
+    
+    public String calculateTimeOfDeath(double bodyTemp, double roomTemp)
+    {
+        String foundBody = "6:00 AM";
+        SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
+        String timeOfDeath = "";
+        int timeSinceDeath = 0;
+        
+        Calendar cal = Calendar.getInstance(); // creates calendar
+        
+        try {
+            Date timeBodyWasFound = sdf.parse(foundBody);
+            cal.setTime(timeBodyWasFound);
+            
+            if (bodyTemp >= 90 && bodyTemp <= 106 && 
+                    roomTemp >= 50 && roomTemp <= 120 )
+            {
+                if (roomTemp > 98 && bodyTemp > 98)
+                {
+                    timeSinceDeath = (int)Math.round((bodyTemp - 98) / 1.5);
+                    cal.add(Calendar.HOUR_OF_DAY, -timeSinceDeath);
+                    timeOfDeath = sdf.format(cal.getTime());
+                }
+                else if (roomTemp < 98 && bodyTemp < 98)
+                {
+                    timeSinceDeath = (int)Math.round((98 - bodyTemp) / 1.5);
+                    cal.add(Calendar.HOUR_OF_DAY, -timeSinceDeath);
+                    timeOfDeath = sdf.format(cal.getTime());
+                }
+                else
+                {
+                    return "Room temperature and body temperature don't match";
+                }
+            }
+            else
+            {
+                return "Invalid input";
+            }
+
+            return timeOfDeath;
+        }
+        catch(ParseException ex)
+        {
+            return "Invalid time";
+        }
+        
     }
 }
