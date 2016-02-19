@@ -194,4 +194,104 @@ public class CaseControlTest {
         String result8 = instance8.calculateTimeOfDeath(bodyTemp8, roomTemp8);
         assertEquals(expResult8, result8);
     }
+    
+    /**
+     * Test of suspectsAlibi method, of class CaseControl.
+     */
+    @Test
+    public void testSuspectsAlibi() {
+        System.out.println("suspectsAlibi");
+        int timeSinceDeath = 4;
+        int speedOfTravel = 3;
+        CaseControl instance = new CaseControl();
+        boolean expResult = false;
+        boolean result = instance.suspectsAlibi(timeSinceDeath, speedOfTravel);
+        assertEquals(expResult, result);
+        
+        
+        /****
+         * test case #2
+         */
+        
+         System.out.println("suspectsAlibi");
+        int timeSinceDeath2 = 2;
+        int speedOfTravel2 = 4;
+        CaseControl instance2 = new CaseControl();
+        boolean expResult2 = true;
+        boolean result2 = instance2.suspectsAlibi(timeSinceDeath2, speedOfTravel2);
+        assertEquals(expResult2, result2);
+        
+        
+        /****
+         * test case #3
+         */
+        
+         System.out.println("suspectsAlibi");
+        int timeSinceDeath3 = 1;
+        int speedOfTravel3 = 5;
+        CaseControl instance3 = new CaseControl();
+        boolean expResult3 = true;
+        boolean result3 = instance3.suspectsAlibi(timeSinceDeath3, speedOfTravel3);
+        assertEquals(expResult3, result3);
+        
+        /***
+         * test case #4
+         */
+        
+        System.out.println("suspectsAlibi");
+        int timeSinceDeath4 = 2;
+        int speedOfTravel4 = 3;
+        CaseControl instance4 = new CaseControl();
+        boolean expResult4 = false;
+        boolean result4 = instance4.suspectsAlibi(timeSinceDeath4, speedOfTravel4);
+        assertEquals(expResult4, result4);
+        
+        /***
+         * test case #5
+         */
+        
+         System.out.println("suspectsAlibi");
+        int timeSinceDeath5 = 0;
+        int speedOfTravel5 = 2;
+        CaseControl instance5 = new CaseControl();
+        boolean expResult5 = false;
+        boolean result5 = instance5.suspectsAlibi(timeSinceDeath5, speedOfTravel5);
+        assertEquals(expResult5, result5);
+        
+        /**
+         * test case #6
+         */
+         System.out.println("suspectsAlibi");
+        int timeSinceDeath6 = 2;
+        int speedOfTravel6 = 3;
+        CaseControl instance6 = new CaseControl();
+        boolean expResult6 = false;
+        boolean result6 = instance6.suspectsAlibi(timeSinceDeath6, speedOfTravel6);
+        assertEquals(expResult6, result6);
+        
+        /***
+         * test case #7
+         */
+        
+         System.out.println("suspectsAlibi");
+        int timeSinceDeath7 = 9;
+        int speedOfTravel7 = 4;
+        CaseControl instance7 = new CaseControl();
+        boolean expResult7 = true;
+        boolean result7 = instance7.suspectsAlibi(timeSinceDeath7, speedOfTravel7);
+        assertEquals(expResult7, result7);
+        
+        /***
+         * test case #8
+         */
+        
+         System.out.println("suspectsAlibi");
+        int timeSinceDeath8 = 0;
+        int speedOfTravel8 = 0;
+        CaseControl instance8 = new CaseControl();
+        boolean expResult8 = false;
+        boolean result8 = instance8.suspectsAlibi(timeSinceDeath8, speedOfTravel8);
+        assertEquals(expResult8, result8);
+    
+    }
 }

@@ -95,4 +95,18 @@ public class CaseControl {
         }
         
     }
+    
+    boolean suspectsAlibi(int timeSinceDeath, int speedOfTravel) 
+    {
+        boolean alibi = true;
+        int suspectRadius = speedOfTravel * timeSinceDeath;
+        int searchRadius = timeSinceDeath * 3;
+        
+        if (suspectRadius <= searchRadius)
+        {
+            alibi = false;
+        }
+         return alibi;      
+        
+    }
 }
