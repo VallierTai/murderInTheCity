@@ -5,6 +5,8 @@
  */
 package cit260.murderInTheCity.view;
 
+import cit260.murderInTheCity.control.GameControl;
+import cit260.murderInTheCity.model.Player;
 import java.util.Scanner;
 
 /**
@@ -80,6 +82,41 @@ public class StartProgramView {
     }
 
     private boolean doAction(String playersName) {
+        if (playersName.length() < 2) {
+            System.out.println("\nInvalid players name: "
+                + "The name must be greater than one character in length");
+            return false;
+        }
+        
+        // call createPlayer() control function
+        Player player = GameControl.createPlayer(playersName);
+        
+        // if unsuccessful
+        if (player == null) {
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+        
+        //display next view
+        this.displayNextView(player);
+        
+        // success !
         return true;
+    }
+
+    private void displayNextView(Player player) {
+        // display a custom welcome message
+        System.out.println("\n======================================="
+                         + "\n Welcome to the game " + player.getName()
+                         + "\n We are depending on you to help us catch the killer."
+                         + "\n Good luck, you will need it!"
+                         + "\n======================================="
+                         );
+        
+        // Create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        // Display the main menu view
+        mainMenuView.displayMainMenuView();
     }
 }
