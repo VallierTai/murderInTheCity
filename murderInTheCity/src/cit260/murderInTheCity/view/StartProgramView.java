@@ -24,11 +24,23 @@ public class StartProgramView {
 
     private void displayBanner() {
         System.out.println(
-              "\n*****************************************"
-            + "\n*                                       *"
-            + "\n* Game Information                      *"
-            + "\n*                                       *"
-            + "\n*****************************************"
+              "\n**************************************************************"
+            + "\n*                                                            *"
+            + "\n* Murder in the City is a game that will have you playing    *"
+            + "\n* a detective in the Valley of Arizona. In this game it is   *"
+            + "\n* up to you to catch a killer and solve the case. You are an *"
+            + "\n* experienced cop that was just promoted to detective. You   *"
+            + "\n* will be scouring the cities, looking for clues and talking *"
+            + "\n* to witnesses and suspects. It will be your job to not only *"
+            + "\n* find the murder weapon, but also decide who the killer is. *"
+            + "\n* Once you have solid evidence you may choose to take it to  *"
+            + "\n* the DA and prosecute. This will end the case and you can   *"
+            + "\n* move on to the next case. You will have a total of three   *"
+            + "\n* murders to solve, so let's get started.                    *"
+            + "\n*                                                            *"
+            + "\n* Be careful, and good luck!                                 *"
+            + "\n*                                                            *"
+            + "\n**************************************************************"
             );
     }
 

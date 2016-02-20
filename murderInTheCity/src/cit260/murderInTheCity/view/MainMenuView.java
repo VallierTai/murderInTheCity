@@ -5,7 +5,9 @@
  */
 package cit260.murderInTheCity.view;
 
+import cit260.murderInTheCity.control.GameControl;
 import java.util.Scanner;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -102,7 +104,11 @@ public class MainMenuView
     }           
 
     private void startNewGame() {
-        System.out.println("*** startNewGame function called ***");
+        GameControl.createNewGame(MurderInTheCity.getPlayer());
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void startExistingGame() {
@@ -110,7 +116,10 @@ public class MainMenuView
     }
 
     private void displayHelpMenu() {
-       System.out.println("*** displayHelpMenu function called ***"); 
+        HelpMenuView helpMenu = new HelpMenuView();
+        
+        // display the help menu
+        helpMenu.displayHelpMenuView();
     }
 
     private void saveGame() {
