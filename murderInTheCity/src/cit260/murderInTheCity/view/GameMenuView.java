@@ -128,7 +128,8 @@ public class GameMenuView {
     }
 
     private void calculateTimeOfDeath() {
-        calculateTimeOfDeathView.display();
+        calculateTimeOfDeathView timeOfDeathView = new calculateTimeOfDeathView();
+        timeOfDeathView.display();
     }
 
     private void calculateSearchRadius() {

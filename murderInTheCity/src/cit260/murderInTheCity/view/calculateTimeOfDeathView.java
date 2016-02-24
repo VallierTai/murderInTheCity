@@ -14,14 +14,18 @@ import java.util.Scanner;
  */
 public class calculateTimeOfDeathView {
     
-    public static void display() {
+    public calculateTimeOfDeathView() {
+        
+    }
+    
+    public void display() {
         System.out.println("\nCalculate time of death. You will need the victim's"
                             + "body temperature and the ambient temperature.");
         
         getInput();
     }
     
-    public static void getInput() {
+    public void getInput() {
         double bodyTemp = 0;
         double roomTemp = 0;
         boolean bodyTempValid = false;
@@ -67,7 +71,7 @@ public class calculateTimeOfDeathView {
         doAction(bodyTemp, roomTemp);
     }
     
-    public static void doAction(double bodyTemp, double roomTemp) {
+    public void doAction(double bodyTemp, double roomTemp) {
         String timeOfDeath = "";
         
         timeOfDeath = CaseControl.calculateTimeOfDeath(bodyTemp, roomTemp);
