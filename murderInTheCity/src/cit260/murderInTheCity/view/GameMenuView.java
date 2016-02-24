@@ -5,6 +5,7 @@
  */
 package cit260.murderInTheCity.view;
 
+import cit260.murderInTheCity.control.CaseControl;
 import java.util.Scanner;
 
 /**
@@ -127,7 +128,7 @@ public class GameMenuView {
     }
 
     private void calculateTimeOfDeath() {
-        System.out.println("calculateTimeOfDeath function called");
+        calculateTimeOfDeathView.display();
     }
 
     private void calculateSearchRadius() {

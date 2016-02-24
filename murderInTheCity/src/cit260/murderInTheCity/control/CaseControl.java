@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class CaseControl {
     
-    public int calculateSearchRadius(int speedOfTravel, String timeOfDeath)
+    public static int calculateSearchRadius(int speedOfTravel, String timeOfDeath)
     {
         int radius = 0;
         long timeSinceDeath = 0;
@@ -49,7 +49,7 @@ public class CaseControl {
         return radius;
     }
     
-    public String calculateTimeOfDeath(double bodyTemp, double roomTemp)
+    public static String calculateTimeOfDeath(double bodyTemp, double roomTemp)
     {
         String foundBody = "6:00 AM";
         SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
@@ -79,24 +79,26 @@ public class CaseControl {
                 }
                 else
                 {
-                    return "Room temperature and body temperature don't match";
+                    return "\nRoom temperature and body temperature don't match\n"
+                            + "(body and ambient temperatures must both be higher"
+                            + " or both be lower than 98.6 degrees)";
                 }
             }
             else
             {
-                return "Invalid input";
+                return "\nInvalid input (see Help Menu for valid ranges)";
             }
 
-            return timeOfDeath;
+            return "\nVictim died at " + timeOfDeath;
         }
         catch(ParseException ex)
         {
-            return "Invalid time";
+            return "\nInvalid time";
         }
         
     }
     
-    boolean suspectsAlibi(int timeSinceDeath, int speedOfTravel) 
+    public static boolean suspectsAlibi(int timeSinceDeath, int speedOfTravel) 
     {
         boolean alibi = true;
         int suspectRadius = speedOfTravel * timeSinceDeath;
