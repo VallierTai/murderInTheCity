@@ -54,17 +54,17 @@ public class CalculateSearchRadiusView {
         }
         while (!timeOfDeathValid) {
             do {
-                System.out.println("\nEnter victim's time of death (i.e. '2' for 2:00 AM): ");
-                timeOfDeath = keyboard.nextLine();
+                System.out.println("\nEnter victim's time of death (i.e. '2:00AM'): ");
+                timeOfDeath = keyboard.next() + " " + keyboard.next();
                 
-                if (timeOfDeath != "12" || 
-                    timeOfDeath != "1"  ||
-                    timeOfDeath != "2"  ||
-                    timeOfDeath != "3"  ||
-                    timeOfDeath != "4"  ||
-                    timeOfDeath != "5") 
+                if (!(timeOfDeath != "12:00 AM") || 
+                    !(timeOfDeath != "1:00 AM")  ||
+                    !(timeOfDeath != "2:00 AM")  ||
+                    !(timeOfDeath != "3:00 AM")  ||
+                    !(timeOfDeath != "4:00 AM")  ||
+                    !(timeOfDeath != "5:00 AM")) 
                 {    
-                    System.out.println("Time of death is not valid must be between 12AM and 5AM)");
+                    System.out.println("Time of death is not valid, must be between 12:00 AM and 5:00 AM)");
                     timeOfDeathValid = false;
                 }
                  else {
@@ -77,7 +77,7 @@ public class CalculateSearchRadiusView {
     
     public void doAction(int speedOfTravel, String timeOfDeath) {
         
-        int searchRadius = CaseControl.calculateSearchRadius( speedOfTravel, timeOfDeath);
+        String searchRadius = CaseControl.calculateSearchRadius( speedOfTravel, timeOfDeath);
         
        System.out.println(searchRadius);
         

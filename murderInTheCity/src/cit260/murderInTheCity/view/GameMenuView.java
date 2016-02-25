@@ -133,7 +133,8 @@ public class GameMenuView {
     }
 
     private void calculateSearchRadius() {
-        System.out.println("calculateSearchRadius function called");
+        CalculateSearchRadiusView searchRadiusView = new CalculateSearchRadiusView();
+        searchRadiusView.display();
     }
 
     private void validateSuspectsAlibi() {
