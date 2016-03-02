@@ -13,18 +13,12 @@ import java.util.Scanner;
  *
  * @author Brad Bastian
  */
-public class StartProgramView {
+public class StartProgramView extends View {
     
     private String promptMessage;
     
     public StartProgramView() {
-        this.promptMessage = "\nPlease enter your name: ";
-        this.displayBanner();
-    }
-
-    private void displayBanner() {
-        System.out.println(
-              "\n**************************************************************"
+        super("\n**************************************************************"
             + "\n*                                                            *"
             + "\n* Murder in the City is a game that will have you playing    *"
             + "\n* a detective in the Valley of Arizona. In this game it is   *"
@@ -41,26 +35,8 @@ public class StartProgramView {
             + "\n* Be careful, and good luck!                                 *"
             + "\n*                                                            *"
             + "\n**************************************************************"
+            + "\n\nPlease enter your name: "
             );
-    }
-
-    public void displayStartProgramView() {
-        // set flag to not done
-        boolean done = false;
-        do {
-            // prompt for and get players name
-            String playersName = this.getPlayersName();
-            // user wants to quit
-            if (playersName.toUpperCase().equals("Q")) {
-                // exit the game
-                return;
-            }
-            
-            // do the requested action and display the next view
-            done = this.doAction(playersName);
-            
-        } while (!done);
-        
     }
 
     private String getPlayersName() {
@@ -93,7 +69,8 @@ public class StartProgramView {
         return value;
     }
 
-    private boolean doAction(String playersName) {
+    @Override
+    public boolean doAction(String playersName) {
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
                 + "The name must be greater than one character in length");
@@ -129,6 +106,6 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
         
         // Display the main menu view
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 }
