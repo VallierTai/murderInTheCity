@@ -79,9 +79,9 @@ public class ValidateSuspectsAlibiView {
         
     }
         public void doAction(int speedOfTravel, int timeSinceDeath){ 
-            int suspectsAlibi = CaseControl.validateSuspectsAlibi(speedOfTravel, timeSinceDeath);
+            //int suspectsAlibi = CaseControl.validateSuspectsAlibi(speedOfTravel, timeSinceDeath);
                    
-                    System.out.println(suspectsAlibi);
+            //        System.out.println(suspectsAlibi);
             
             
     }
