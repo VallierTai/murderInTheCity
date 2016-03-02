@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class CaseControl {
     
-    public static int calculateSearchRadius(int speedOfTravel, String timeOfDeath)
+    public static String calculateSearchRadius(int speedOfTravel, String timeOfDeath)
     {
         int radius = 0;
         long timeSinceDeath = 0;
@@ -39,14 +39,14 @@ public class CaseControl {
                 radius = (int)(timeSinceDeath * speedOfTravel);
             }
             else {
-                return -1;
+                return "Invalid input";
             }
             
         } catch (ParseException ex) {
-            return -1;
+            return "Invalid date";
         }
         
-        return radius;
+        return "The victim's search radius is " + radius + " miles.";
     }
     
     public static String calculateTimeOfDeath(double bodyTemp, double roomTemp)
