@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author Brad Bastian
  */
 public class Item implements Serializable {
+
     private String name;
     private String description;
     private boolean isEvidence;

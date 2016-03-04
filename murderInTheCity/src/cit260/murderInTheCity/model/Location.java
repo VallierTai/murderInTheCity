@@ -12,10 +12,10 @@ import java.util.Objects;
  *
  * @author Tai
  */
-public class Location implements Serializable
-{
-  // class instance variables
-  private String description;
+public class Location implements Serializable {
+    // class instance variables
+
+    private String description;
 
     public String getDescription() {
         return description;
@@ -54,9 +54,5 @@ public class Location implements Serializable
     public String toString() {
         return "Location{" + "description=" + description + '}';
     }
-    
-  
-  
 
-    
 }

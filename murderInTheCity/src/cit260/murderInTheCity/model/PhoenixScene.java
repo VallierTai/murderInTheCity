@@ -13,8 +13,8 @@ import java.util.Objects;
  *
  * @author Tai
  */
-public class PhoenixScene extends Location implements Serializable
-{
+public class PhoenixScene extends Location implements Serializable {
+
     private List<Item> evidenceList;
 
     public PhoenixScene() {
@@ -47,7 +47,7 @@ public class PhoenixScene extends Location implements Serializable
         if (!Objects.equals(this.evidenceList, other.evidenceList)) {
             return false;
         }
-        return true;  
+        return true;
     }
 
     @Override

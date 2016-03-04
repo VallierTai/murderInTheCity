@@ -13,7 +13,8 @@ import java.util.Objects;
  *
  * @author Tai
  */
-public class ScottsdaleScene extends Location implements Serializable{
+public class ScottsdaleScene extends Location implements Serializable {
+
     private List<Item> evidenceList;
 
     public ScottsdaleScene() {
@@ -24,7 +25,7 @@ public class ScottsdaleScene extends Location implements Serializable{
     }
 
     public void setEvidenceList(List<Item> evidenceList) {
-        this.evidenceList = evidenceList; 
+        this.evidenceList = evidenceList;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class ScottsdaleScene extends Location implements Serializable{
         if (!Objects.equals(this.evidenceList, other.evidenceList)) {
             return false;
         }
-        return true; 
+        return true;
     }
 
     @Override

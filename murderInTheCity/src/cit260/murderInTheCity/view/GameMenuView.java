@@ -14,10 +14,10 @@ import java.util.Scanner;
  */
 public class GameMenuView extends View {
 
-    public GameMenuView(){
+    public GameMenuView() {
         super("\n"
-                +"\n--------------------------------------"
-                +"\n| Game Menu "
+                + "\n--------------------------------------"
+                + "\n| Game Menu "
                 + "\nC - View city locations"
                 + "\nE - Evidence list"
                 + "\nL - Suspect List"
@@ -29,44 +29,44 @@ public class GameMenuView extends View {
                 + "\nQ - Return to Main Menu"
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
-     }
-    
+    }
+
     @Override
     public boolean doAction(String choice) {
-        
-       choice = choice.toUpperCase(); // convert choice to upper case
-       
-       switch (choice){
-           case "C": // view city locations
-               this.viewCityLocations();
-               break;
-           case "E": // evidence list
-               this.evidenceList();
-               break;
-           case "L": // suspect list
-               this.suspectList();
-               break;
-           case "T": // calculate time of death
-               this.calculateTimeOfDeath();
-               break;
+
+        choice = choice.toUpperCase(); // convert choice to upper case
+
+        switch (choice) {
+            case "C": // view city locations
+                this.viewCityLocations();
+                break;
+            case "E": // evidence list
+                this.evidenceList();
+                break;
+            case "L": // suspect list
+                this.suspectList();
+                break;
+            case "T": // calculate time of death
+                this.calculateTimeOfDeath();
+                break;
             case "D": // calculate search radius
-               this.calculateSearchRadius();
-               break;
+                this.calculateSearchRadius();
+                break;
             case "V": // validate suspect's alibi
-               this.validateSuspectsAlibi();
-               break;
+                this.validateSuspectsAlibi();
+                break;
             case "Z": // solve the crime
-               this.solveCrime();
-               break;
+                this.solveCrime();
+                break;
             case "M": // move around city
-               this.moveAroundCity();
-               break;
-           default:
-               System.out.println("\n*** Invalid selection *** Try again");
-               break;
-       }              
-        return false;       
-    }      
+                this.moveAroundCity();
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
+        }
+        return false;
+    }
 
     private void viewCityLocations() {
         System.out.println("viewCityLocations function called");
@@ -86,8 +86,8 @@ public class GameMenuView extends View {
     }
 
     private void calculateSearchRadius() {
-       CalculateSearchRadiusView searchRadiusView = new CalculateSearchRadiusView();
-       searchRadiusView.display();
+        CalculateSearchRadiusView searchRadiusView = new CalculateSearchRadiusView();
+        searchRadiusView.display();
     }
 
     private void validateSuspectsAlibi() {
@@ -101,5 +101,5 @@ public class GameMenuView extends View {
     private void moveAroundCity() {
         System.out.println("moveAroundCity function called");
     }
-    
+
 }

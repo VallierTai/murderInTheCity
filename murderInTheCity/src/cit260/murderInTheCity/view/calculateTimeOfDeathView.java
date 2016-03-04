@@ -13,26 +13,26 @@ import java.util.Scanner;
  * @author Brad Bastian
  */
 public class calculateTimeOfDeathView {
-    
+
     public calculateTimeOfDeathView() {
-        
+
     }
-    
+
     public void display() {
         System.out.println("\nCalculate time of death. You will need the victim's"
-                            + "body temperature and the ambient temperature.");
-        
+                + "body temperature and the ambient temperature.");
+
         getInput();
     }
-    
+
     public void getInput() {
         double bodyTemp = 0;
         double roomTemp = 0;
         boolean bodyTempValid = false;
         boolean roomTempValid = false;
-        
+
         Scanner keyboard = new Scanner(System.in);
-        
+
         while (!bodyTempValid) {
             do {
                 System.out.println("\nEnter victim's body temperature: ");
@@ -42,10 +42,10 @@ public class calculateTimeOfDeathView {
                 }
                 bodyTemp = keyboard.nextDouble();
                 if (bodyTemp < 90 || bodyTemp > 106) {
-                    System.out.println("Body temperature is not valid (must be between 90-106 degrees)");
+                    System.out.println("Body temperature is not valid (must "
+                            + "be between 90-106 degrees)");
                     bodyTempValid = false;
-                }
-                 else {
+                } else {
                     bodyTempValid = true;
                 }
             } while (bodyTemp == 0);
@@ -59,23 +59,23 @@ public class calculateTimeOfDeathView {
                 }
                 roomTemp = keyboard.nextDouble();
                 if (roomTemp < 50 || roomTemp > 120) {
-                    System.out.println("Ambient temperature is not valid (must be between 50-120 degrees)");
+                    System.out.println("Ambient temperature is not valid (must "
+                            + "be between 50-120 degrees)");
                     roomTempValid = false;
-                }
-                 else {
+                } else {
                     roomTempValid = true;
                 }
             } while (roomTemp == 0);
         }
-        
+
         doAction(bodyTemp, roomTemp);
     }
-    
+
     public void doAction(double bodyTemp, double roomTemp) {
         String timeOfDeath = "";
-        
+
         timeOfDeath = CaseControl.calculateTimeOfDeath(bodyTemp, roomTemp);
-        
+
         System.out.println(timeOfDeath);
     }
 }

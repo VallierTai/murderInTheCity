@@ -10,5 +10,5 @@ package cit260.murderInTheCity.control;
  * @author Brad Bastian
  */
 public class MapControl {
-    
+
 }

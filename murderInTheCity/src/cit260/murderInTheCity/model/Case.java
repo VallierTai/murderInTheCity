@@ -14,6 +14,7 @@ import cit260.murderInTheCity.model.Character;
  * @author Brad Bastian
  */
 public class Case implements Serializable {
+
     private String name;
     private String description;
     private Character victim;

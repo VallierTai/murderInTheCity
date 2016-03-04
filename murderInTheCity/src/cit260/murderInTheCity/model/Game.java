@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author Brad Bastian
  */
 public class Game implements Serializable {
+
     private String introMessage;
 
     public String getIntroMessage() {

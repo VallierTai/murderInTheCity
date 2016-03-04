@@ -12,11 +12,11 @@ import java.util.Scanner;
  * @author Brad Bastian
  */
 public class HelpMenuView extends View {
-    
-    public HelpMenuView(){
+
+    public HelpMenuView() {
         super("\n"
-                +"\n--------------------------------------"
-                +"\n| Help Menu "
+                + "\n--------------------------------------"
+                + "\n| Help Menu "
                 + "\nP - Purpose of the game"
                 + "\nM - How to move in the game"
                 + "\nT - How to calculate time of death"
@@ -25,35 +25,35 @@ public class HelpMenuView extends View {
                 + "\nQ - Return to Main Menu"
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
-     } 
-    
+    }
+
     @Override
     public boolean doAction(String choice) {
-        
-       choice = choice.toUpperCase(); // convert choice to upper case
-       
-       switch (choice){
-           case "P": // display purpose of the game
-               this.purposeOfGame();
-               break;
-           case "M": // display how to move in the game
-               this.howToMove();
-               break;
-           case "T": // display how to calculate time of death
-               this.howToCalculateTimeOfDeath();
-               break;
-           case "S": // display how to calculate search radius
-               this.howToCalculateSearchRadius();
-               break;
+
+        choice = choice.toUpperCase(); // convert choice to upper case
+
+        switch (choice) {
+            case "P": // display purpose of the game
+                this.purposeOfGame();
+                break;
+            case "M": // display how to move in the game
+                this.howToMove();
+                break;
+            case "T": // display how to calculate time of death
+                this.howToCalculateTimeOfDeath();
+                break;
+            case "S": // display how to calculate search radius
+                this.howToCalculateSearchRadius();
+                break;
             case "V": // display how to validate a suspect's alibi
-               this.howToValidateSuspectsAlibi();
-               break;
-           default:
-               System.out.println("\n*** Invalid selection *** Try again");
-               break;
-       }              
-        return false;       
-    }           
+                this.howToValidateSuspectsAlibi();
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
+        }
+        return false;
+    }
 
     private void purposeOfGame() {
         System.out.println("\n purposeOfGame function called");

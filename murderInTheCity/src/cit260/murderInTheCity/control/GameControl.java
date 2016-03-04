@@ -18,13 +18,13 @@ public class GameControl {
         if (name == null) {
             return null;
         }
-        
+
         Player player = new Player();
         player.setName(name);
-        
+
         // save the player
         MurderInTheCity.setPlayer(player);
-        
+
         return player;
     }
 

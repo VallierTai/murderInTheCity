@@ -24,7 +24,7 @@ import java.util.List;
  * @author Tai
  */
 public class MurderInTheCity {
-    
+
     private static Game currentGame = null;
     private static Player player = null;
 
@@ -50,6 +50,6 @@ public class MurderInTheCity {
     public static void main(String[] args) {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
-        
+
     }
 }

@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author Tai
  */
-public class Character implements Serializable{
-    
+public class Character implements Serializable {
+
     private String name;
     private String sex;
     private String description;
@@ -42,7 +42,7 @@ public class Character implements Serializable{
     }
 
     public void setDescription(String description) {
-        this.description = description; 
+        this.description = description;
     }
 
     @Override
@@ -76,10 +76,5 @@ public class Character implements Serializable{
     public String toString() {
         return "Character{" + "name=" + name + ", sex=" + sex + ", description=" + description + '}';
     }
-    
-    
-    
-    
-    
-    
+
 }

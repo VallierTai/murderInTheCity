@@ -14,11 +14,12 @@ import java.util.Objects;
  * @author Tai
  */
 public class TempeScene extends Location implements Serializable {
+
     private List<Item> evidenceList;
 
     public TempeScene() {
     }
-   
+
     public List<Item> getEvidenceList() {
         return evidenceList;
     }

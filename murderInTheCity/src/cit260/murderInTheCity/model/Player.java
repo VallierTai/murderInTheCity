@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author Brad Bastian
  */
 public class Player extends Character implements Serializable {
+
     private Item inventory;
 
     public Item getInventory() {
@@ -25,7 +26,7 @@ public class Player extends Character implements Serializable {
 
     public Player() {
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;

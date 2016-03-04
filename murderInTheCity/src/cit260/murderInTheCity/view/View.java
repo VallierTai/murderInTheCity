@@ -12,42 +12,47 @@ import java.util.Scanner;
  * @author Tai
  */
 public abstract class View implements ViewInterface {
+
     protected String displayMessage;
+
     public View() {
     }
-    public View(String message){
+
+    public View(String message) {
         this.displayMessage = message;
     }
+
     @Override
-     public void display() {
+    public void display() {
         boolean done = false; // set flag to not done
-        do { 
+        do {
             // prompt for and get players name
             String value = this.getInput();
-            if (value.toUpperCase().equals("Q"))
-                    // user wants to quit
-                    return; // exit the game
-            // do the requested action and display the next view
+            if (value.toUpperCase().equals("Q")) // user wants to quit
+            {
+                return; // exit the game
+            }            // do the requested action and display the next view
             done = this.doAction(value);
         } while (!done);
-     }
-       public String getInput() {
-       
+    }
+
+    public String getInput() {
+
         Scanner keyboard = new Scanner(System.in);
         String value = null;
-        
+
         // set flag to invalid value entered
         boolean valid = false;
         // while a valid name has not been retrieved
-        while(!valid) {
+        while (!valid) {
             // display menu
             System.out.println("\n" + this.displayMessage);
-            
+
             // get the name from the keyboard
             value = keyboard.nextLine();
             // trim off the excess blanks
             value = value.trim();
-            
+
             // if the name is invalid (less than one character in length)
             if (value.length() < 1) {
                 System.out.println("\n *** You must enter a value ***");
@@ -59,8 +64,6 @@ public abstract class View implements ViewInterface {
         }
         // return the value
         return value;
-    }  
-       
-    } 
-    
+    }
 
+}

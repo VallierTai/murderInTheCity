@@ -14,28 +14,30 @@ import java.util.Scanner;
  * @author Tai
  */
 public class ValidateSuspectsAlibiView {
+
     int speedOfTravel;
     int timeOfDeath;
-    
+
     public ValidateSuspectsAlibiView() {
-    
-}
+
+    }
+
     public void display() {
         System.out.println("\n to validate suspects Alibi. You will need "
                 + "time of death and speed of travel");
-        
-        getInput ();
-       
+
+        getInput();
+
     }
-    
+
     public void getInput() {
         int speedOfTravel = 0;
         int timeOfDeath = 0;
         boolean speedOfTravelValid = false;
         boolean timeOfDeathValid = false;
-        
+
         Scanner keyboard = new Scanner(System.in);
-        
+
         while (!speedOfTravelValid) {
             do {
                 System.out.println("\nEnter suspects speed of travel: ");
@@ -47,8 +49,7 @@ public class ValidateSuspectsAlibiView {
                 if (speedOfTravel < 0 || speedOfTravel > 6) {
                     System.out.println("Speed of travel is invalid must be between 0 and 5mph.)");
                     speedOfTravelValid = false;
-                }
-                 else {
+                } else {
                     speedOfTravelValid = true;
                 }
             } while (speedOfTravel == 0);
@@ -57,34 +58,28 @@ public class ValidateSuspectsAlibiView {
             do {
                 System.out.println("\nEnter victim's time of death (i.e. '2' for 2:00 AM): ");
                 timeOfDeath = keyboard.nextInt();
-                
-                if (timeOfDeath != 12 || 
-                    timeOfDeath != 1  ||
-                    timeOfDeath != 2  ||
-                    timeOfDeath != 3  ||
-                    timeOfDeath != 4  ||
-                    timeOfDeath != 5) 
-                {    
+
+                if (timeOfDeath != 12
+                        || timeOfDeath != 1
+                        || timeOfDeath != 2
+                        || timeOfDeath != 3
+                        || timeOfDeath != 4
+                        || timeOfDeath != 5) {
                     System.out.println("Time of death is not valid must be between 12AM and 5AM)");
                     timeOfDeathValid = false;
-                }
-                 else {
+                } else {
                     timeOfDeathValid = true;
                 }
             } while (timeOfDeath == 0);
         }
         doAction(speedOfTravel, timeOfDeath);
-        
-        
-        
+
     }
-        public void doAction(int speedOfTravel, int timeSinceDeath){ 
-            //int suspectsAlibi = CaseControl.validateSuspectsAlibi(speedOfTravel, timeSinceDeath);
-                   
-            //        System.out.println(suspectsAlibi);
-            
-            
+
+    public void doAction(int speedOfTravel, int timeSinceDeath) {
+        //int suspectsAlibi = CaseControl.validateSuspectsAlibi(speedOfTravel, timeSinceDeath);
+
+        //        System.out.println(suspectsAlibi);
     }
 
 }
-

@@ -14,7 +14,8 @@ import java.util.Objects;
  * @author Brad Bastian
  */
 public class Map implements Serializable {
-    private Location  playerLocation;
+
+    private Location playerLocation;
     private List<Location> cityList;
     private int rowCount;
     private int columnCount;
