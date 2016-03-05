@@ -69,7 +69,8 @@ public class GameMenuView extends View {
     }
 
     private void viewCityLocations() {
-        System.out.println("viewCityLocations function called");
+        CityMenuView cityMenuView = new CityMenuView();
+        cityMenuView.display();
     }
 
     private void evidenceList() {
