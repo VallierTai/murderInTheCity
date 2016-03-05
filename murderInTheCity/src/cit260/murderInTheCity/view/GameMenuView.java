@@ -25,7 +25,7 @@ public class GameMenuView extends View {
                 + "\nD - Calculate search radius"
                 + "\nV - Validate a suspect's alibi"
                 + "\nZ - Solve the crime"
-                + "\nM - Move around city"
+                + "\nM - Drive around the city"
                 + "\nQ - Return to Main Menu"
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
@@ -99,7 +99,8 @@ public class GameMenuView extends View {
     }
 
     private void moveAroundCity() {
-        System.out.println("moveAroundCity function called");
+        DriveView driveView = new DriveView();
+        driveView.display();
     }
 
 }
