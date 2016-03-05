@@ -19,7 +19,7 @@ import java.util.Scanner;
                 + "\n| City Menu "
                 + "\nT - Visit Tempe"
                 + "\nS - Visit Scottsdale"
-                + "\nE - Visit Phoenix"
+                + "\nP - Visit Phoenix"
                 + "\nQ - Return to Game Menu"
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
