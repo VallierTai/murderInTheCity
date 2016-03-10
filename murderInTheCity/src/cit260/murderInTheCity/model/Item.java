@@ -16,7 +16,7 @@ public class Item implements Serializable {
 
     private String name;
     private String description;
-    private boolean isEvidence;
+    //private boolean isEvidence;
 
     public String getName() {
         return name;
@@ -34,14 +34,12 @@ public class Item implements Serializable {
         this.description = description;
     }
 
-    public boolean isIsEvidence() {
-        return isEvidence;
-    }
-
-    public void setIsEvidence(boolean isEvidence) {
-        this.isEvidence = isEvidence;
-    }
-
+    //public boolean isIsEvidence() {
+    //    return isEvidence;
+    //}
+    //public void setIsEvidence(boolean isEvidence) {
+    //    this.isEvidence = isEvidence;
+    //}
     public Item() {
     }
 
@@ -50,7 +48,6 @@ public class Item implements Serializable {
         int hash = 7;
         hash = 43 * hash + Objects.hashCode(this.name);
         hash = 43 * hash + Objects.hashCode(this.description);
-        hash = 43 * hash + (this.isEvidence ? 1 : 0);
         return hash;
     }
 
@@ -66,9 +63,6 @@ public class Item implements Serializable {
             return false;
         }
         final Item other = (Item) obj;
-        if (this.isEvidence != other.isEvidence) {
-            return false;
-        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -80,6 +74,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString() {
-        return "Item{" + "name=" + name + ", description=" + description + ", isEvidence=" + isEvidence + '}';
+        return "Item{" + "name=" + name + ", description=" + description + '}';
     }
 }

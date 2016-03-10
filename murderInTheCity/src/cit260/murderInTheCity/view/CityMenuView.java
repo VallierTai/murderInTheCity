@@ -11,9 +11,9 @@ import java.util.Scanner;
  *
  * @author Tai
  */
-    public class CityMenuView extends View {
-        
-        public CityMenuView () {
+public class CityMenuView extends View {
+
+    public CityMenuView() {
         super("\n"
                 + "\n--------------------------------------"
                 + "\n| City Menu "
@@ -24,11 +24,10 @@ import java.util.Scanner;
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
     }
-   
-    
+
     @Override
     public boolean doAction(String value) {
-        
+
         value = value.toUpperCase(); // convert choice to upper case
 
         switch (value) {
@@ -58,9 +57,5 @@ import java.util.Scanner;
 
     private void visitPhoenix() {
         System.out.println("Called function visitPhoenix");
-}
     }
-  
-
-    
-
+}

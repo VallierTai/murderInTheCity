@@ -12,25 +12,24 @@ import java.util.Objects;
  *
  * @author Brad Bastian
  */
-public class Player extends Character implements Serializable {
+public class Player implements Serializable {
 
-    private Item inventory;
-
-    public Item getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Item inventory) {
-        this.inventory = inventory;
-    }
+    private String name;
 
     public Player() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.inventory);
         return hash;
     }
 
@@ -46,14 +45,11 @@ public class Player extends Character implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
-        if (!Objects.equals(this.inventory, other.inventory)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "inventory=" + inventory + '}';
+        return "Player{" + '}';
     }
 }

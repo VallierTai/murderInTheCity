@@ -21,6 +21,14 @@ public class Case implements Serializable {
     private Character suspect;
     private Item murderWeapon;
 
+    public Case() {
+        this.name = "Tempe case";
+        this.description = "tempe case description";
+        this.victim = null;
+        this.suspect = null;
+        this.murderWeapon = null;
+    }
+
     public String getName() {
         return name;
     }
@@ -59,9 +67,6 @@ public class Case implements Serializable {
 
     public void setMurderWeapon(Item murderWeapon) {
         this.murderWeapon = murderWeapon;
-    }
-
-    public Case() {
     }
 
     @Override

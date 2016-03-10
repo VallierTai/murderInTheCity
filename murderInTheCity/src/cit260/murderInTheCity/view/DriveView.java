@@ -10,7 +10,7 @@ package cit260.murderInTheCity.view;
  * @author Brad Bastian
  */
 public class DriveView extends View {
-    
+
     public DriveView() {
         super("\n"
                 + "\n--------------------------------------"
@@ -23,10 +23,10 @@ public class DriveView extends View {
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
     }
-    
+
     @Override
     public boolean doAction(String value) {
-        
+
         value = value.toUpperCase(); // convert choice to upper case
 
         switch (value) {

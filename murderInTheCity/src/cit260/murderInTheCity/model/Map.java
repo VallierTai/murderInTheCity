@@ -20,6 +20,10 @@ public class Map implements Serializable {
     private int rowCount;
     private int columnCount;
 
+    public Map() {
+
+    }
+
     public Location getPlayerLocation() {
         return playerLocation;
     }
@@ -50,9 +54,6 @@ public class Map implements Serializable {
 
     public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
-    }
-
-    public Map() {
     }
 
     @Override

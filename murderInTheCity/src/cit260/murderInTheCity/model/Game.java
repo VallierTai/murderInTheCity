@@ -14,46 +14,53 @@ import java.util.Objects;
  */
 public class Game implements Serializable {
 
-    private String introMessage;
-
-    public String getIntroMessage() {
-        return introMessage;
-    }
-
-    public void setIntroMessage(String introMessage) {
-        this.introMessage = introMessage;
-    }
+    private Player player;
+    private Case[] cases;
+    private Map[] maps;
+    private Item[] evidence;
+    private Character[] characters;
 
     public Game() {
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.introMessage);
-        return hash;
+    public Player getPlayer() {
+        return player;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (!Objects.equals(this.introMessage, other.introMessage)) {
-            return false;
-        }
-        return true;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" + "introMessage=" + introMessage + '}';
+    public Case[] getCases() {
+        return cases;
     }
+
+    public void setCase(Case[] cases) {
+        this.cases = cases;
+    }
+
+    public Map[] getMaps() {
+        return maps;
+    }
+
+    public void setMaps(Map[] maps) {
+        this.maps = maps;
+    }
+
+    public Item[] getEvidence() {
+        return evidence;
+    }
+
+    public void setEvidence(Item[] evidence) {
+        this.evidence = evidence;
+    }
+
+    public Character[] getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Character[] characters) {
+        this.characters = characters;
+    }
+
 }

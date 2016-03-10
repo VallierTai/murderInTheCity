@@ -12,69 +12,21 @@ import java.util.Objects;
  *
  * @author Tai
  */
-public class Character implements Serializable {
+public enum Character implements Serializable {
 
-    private String name;
-    private String sex;
-    private String description;
+    tempeSuspect1("Jeremy is Ashley's ex-boyfriend who plays baseball at ASU."),
+    tempeSuspect2("Trevor is Ashley's boyfriend"),
+    tempeSuspect3("Lindsey is Ashley's classmate"),
+    tempeVictim("She was a college student at ASU.");
 
-    public Character() {
-    }
+    private final String description;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
+    Character(String description) {
+        this.description = description;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.sex);
-        hash = 53 * hash + Objects.hashCode(this.description);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Character other = (Character) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.sex, other.sex)) {
-            return false;
-        }
-        return Objects.equals(this.description, other.description);
-    }
-
-    @Override
-    public String toString() {
-        return "Character{" + "name=" + name + ", sex=" + sex + ", description=" + description + '}';
     }
 
 }
