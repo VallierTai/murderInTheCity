@@ -15,17 +15,19 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
 
+    private String name;
     private int rowCount;
     private int columnCount;
     private Location[][] locations;
 
-    public Map(int rows, int columns) {
+    public Map(String name, int rows, int columns) {
 
         if (rows < 1 || columns < 1) {
             System.out.println("The number of rows and columns must be > zero");
             return;
         }
 
+        this.name = name;
         this.rowCount = rows;
         this.columnCount = columns;
 
@@ -44,6 +46,14 @@ public class Map implements Serializable {
                 locations[row][column] = location;
             }
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getRowCount() {

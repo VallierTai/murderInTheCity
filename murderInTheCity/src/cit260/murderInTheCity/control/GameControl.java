@@ -54,12 +54,12 @@ public class GameControl {
         game.setCase(cases);
 
         // create and initialize maps
-        Map[] maps = MapControl.createMap[1];
+        Map[] maps = new Map[1];
         // save map in game
         game.setMaps(maps);
 
         // create tempeMap
-        Map tempeMap = new Map(TEMPE_ROWS, TEMPE_COLUMNS);
+        Map tempeMap = new Map("Map of Tempe", TEMPE_ROWS, TEMPE_COLUMNS);
         // add tempeMap to map collection
         maps[0] = tempeMap;
         // move characters to starting position in the map
