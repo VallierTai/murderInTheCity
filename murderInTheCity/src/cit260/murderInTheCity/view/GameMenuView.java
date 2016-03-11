@@ -6,6 +6,8 @@
 package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.CaseControl;
+import cit260.murderInTheCity.control.GameControl;
+import cit260.murderInTheCity.model.Item;
 import java.util.Scanner;
 
 /**
@@ -18,12 +20,11 @@ public class GameMenuView extends View {
         super("\n"
                 + "\n--------------------------------------"
                 + "\n| Game Menu "
-                + "\nC - View city locations"
+                + "\nV - View map"
                 + "\nE - Evidence list"
                 + "\nL - Suspect List"
                 + "\nT - Calculate time of death"
                 + "\nD - Calculate search radius"
-                + "\nV - Validate a suspect's alibi"
                 + "\nZ - Solve the crime"
                 + "\nM - Drive around the city"
                 + "\nQ - Return to Main Menu"
@@ -37,8 +38,8 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase(); // convert choice to upper case
 
         switch (choice) {
-            case "C": // view city locations
-                this.viewCityLocations();
+            case "V": // view city locations
+                this.viewMap();
                 break;
             case "E": // evidence list
                 this.evidenceList();
@@ -51,9 +52,6 @@ public class GameMenuView extends View {
                 break;
             case "D": // calculate search radius
                 this.calculateSearchRadius();
-                break;
-            case "V": // validate suspect's alibi
-                this.validateSuspectsAlibi();
                 break;
             case "Z": // solve the crime
                 this.solveCrime();
@@ -68,13 +66,28 @@ public class GameMenuView extends View {
         return false;
     }
 
+    private void viewMap() {
+
+    }
+
+    /*
     private void viewCityLocations() {
         CityMenuView cityMenuView = new CityMenuView();
         cityMenuView.display();
     }
-
+     */
     private void evidenceList() {
-        System.out.println("evidenceList function called");
+        // get the list of evidence the player has collected
+        Item[] evidence = GameControl.getEvidenceList();
+
+        System.out.println("\nList of collected evidence");
+
+        // for each piece of evidence
+        for (Item item : evidence) {
+            // DISPLAY the name and description
+            System.out.println("Name: " + item.getName()
+                    + "\nDescription: " + item.getDescription());
+        }
     }
 
     private void suspectList() {
@@ -89,10 +102,6 @@ public class GameMenuView extends View {
     private void calculateSearchRadius() {
         CalculateSearchRadiusView searchRadiusView = new CalculateSearchRadiusView();
         searchRadiusView.display();
-    }
-
-    private void validateSuspectsAlibi() {
-        System.out.println("validateSuspectsAlibi function called");
     }
 
     private void solveCrime() {

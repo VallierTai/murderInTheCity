@@ -15,8 +15,11 @@ public class MapControl {
 
     static Map[][] createMap;
 
-    static Map createMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static Map createMap(int rows, int columns) {
+        // create the map
+        Map map = new Map(rows, columns);
+
+        return map;
     }
 
     static void moveCharactersToStartingLocation(Map map) {

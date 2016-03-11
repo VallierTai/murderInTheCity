@@ -18,6 +18,9 @@ import murderinthecity.MurderInTheCity;
  */
 public class GameControl {
 
+    private static final int TEMPE_ROWS = 7;
+    private static final int TEMPE_COLUMNS = 7;
+
     public static Player createPlayer(String name) {
         if (name == null) {
             return null;
@@ -56,10 +59,14 @@ public class GameControl {
         game.setMaps(maps);
 
         // create tempeMap
-        Map tempeMap = new Map();
+        Map tempeMap = new Map(TEMPE_ROWS, TEMPE_COLUMNS);
         // add tempeMap to map collection
         maps[0] = tempeMap;
         // move characters to starting position in the map
         MapControl.moveCharactersToStartingLocation(tempeMap);
+    }
+
+    public static Item[] getEvidenceList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

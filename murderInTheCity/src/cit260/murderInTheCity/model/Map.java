@@ -15,29 +15,35 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
 
-    private Location playerLocation;
-    private List<Location> cityList;
     private int rowCount;
     private int columnCount;
+    private Location[][] locations;
 
-    public Map() {
+    public Map(int rows, int columns) {
 
-    }
+        if (rows < 1 || columns < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
 
-    public Location getPlayerLocation() {
-        return playerLocation;
-    }
+        this.rowCount = rows;
+        this.columnCount = columns;
 
-    public void setPlayerLocation(Location playerLocation) {
-        this.playerLocation = playerLocation;
-    }
+        // create 2-D array for Location objects
+        this.locations = new Location[rows][columns];
 
-    public List<Location> getCityList() {
-        return cityList;
-    }
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                // create and initialize new Location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
 
-    public void setCityList(List<Location> cityList) {
-        this.cityList = cityList;
+                // assign the Location object to the current position in array
+                locations[row][column] = location;
+            }
+        }
     }
 
     public int getRowCount() {
@@ -56,11 +62,17 @@ public class Map implements Serializable {
         this.columnCount = columnCount;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.playerLocation);
-        hash = 67 * hash + Objects.hashCode(this.cityList);
         hash = 67 * hash + this.rowCount;
         hash = 67 * hash + this.columnCount;
         return hash;
@@ -84,17 +96,11 @@ public class Map implements Serializable {
         if (this.columnCount != other.columnCount) {
             return false;
         }
-        if (!Objects.equals(this.playerLocation, other.playerLocation)) {
-            return false;
-        }
-        if (!Objects.equals(this.cityList, other.cityList)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "playerLocation=" + playerLocation + ", cityList=" + cityList + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+        return "Map{" + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
     }
 }
