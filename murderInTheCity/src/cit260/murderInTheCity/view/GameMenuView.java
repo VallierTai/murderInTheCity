@@ -23,13 +23,10 @@ public class GameMenuView extends View {
         super("\n"
                 + "\n--------------------------------------"
                 + "\n| Game Menu "
-                + "\nV - View map"
-                + "\nE - Evidence list"
-                + "\nL - Suspect List"
+                + "\nM - View map"
+                + "\nD - Drive around city"
                 + "\nT - Calculate time of death"
-                + "\nD - Calculate search radius"
-                + "\nZ - Solve the crime"
-                + "\nM - Drive around the city"
+                + "\nR - Review case file"
                 + "\nQ - Return to Main Menu"
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
@@ -41,26 +38,17 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase(); // convert choice to upper case
 
         switch (choice) {
-            case "V": // view map
+            case "M": // view map
                 this.viewMap();
                 break;
-            case "E": // evidence list
-                this.evidenceList();
-                break;
-            case "L": // suspect list
-                this.suspectList();
+            case "D": // drive around city
+                this.driveAroundCity();
                 break;
             case "T": // calculate time of death
                 this.calculateTimeOfDeath();
                 break;
-            case "D": // calculate search radius
-                this.calculateSearchRadius();
-                break;
-            case "Z": // solve the crime
-                this.solveCrime();
-                break;
-            case "M": // move around city
-                this.moveAroundCity();
+            case "R": // review case file
+                this.reviewCaseFile();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -104,6 +92,21 @@ public class GameMenuView extends View {
         System.out.println("\n---------------------------------------------"
                 + "---------------");
     }
+    
+    private void driveAroundCity() {
+        DriveView driveView = new DriveView();
+        driveView.display();
+    }
+    
+    private void calculateTimeOfDeath() {
+        calculateTimeOfDeathView timeOfDeathView = new calculateTimeOfDeathView();
+        timeOfDeathView.display();
+    }
+    
+    private void reviewCaseFile() {
+        ReviewCaseFileView reviewCaseFileView = new ReviewCaseFileView();
+        reviewCaseFileView.display();
+    }
 
     /*
     private void viewCityLocations() {
@@ -111,41 +114,4 @@ public class GameMenuView extends View {
         cityMenuView.display();
     }
      */
-    private void evidenceList() {
-        // get the list of evidence the player has collected
-        Item[] evidence = GameControl.getEvidenceList();
-
-        System.out.println("\nList of collected evidence");
-
-        // for each piece of evidence
-        for (Item item : evidence) {
-            // DISPLAY the name and description
-            System.out.println("Name: " + item.getName()
-                    + "\nDescription: " + item.getDescription());
-        }
-    }
-
-    private void suspectList() {
-        System.out.println("suspectList function called");
-    }
-
-    private void calculateTimeOfDeath() {
-        calculateTimeOfDeathView timeOfDeathView = new calculateTimeOfDeathView();
-        timeOfDeathView.display();
-    }
-
-    private void calculateSearchRadius() {
-        CalculateSearchRadiusView searchRadiusView = new CalculateSearchRadiusView();
-        searchRadiusView.display();
-    }
-
-    private void solveCrime() {
-        System.out.println("solveCrime function called");
-    }
-
-    private void moveAroundCity() {
-        DriveView driveView = new DriveView();
-        driveView.display();
-    }
-
 }
