@@ -10,6 +10,7 @@ import cit260.murderInTheCity.model.Game;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Map;
 import cit260.murderInTheCity.model.Player;
+import cit260.murderInTheCity.model.Character;
 import murderinthecity.MurderInTheCity;
 
 /**
@@ -47,7 +48,7 @@ public class GameControl {
         // create the inventory list and save in the game
         Item[] evidence = ItemControl.createEvidenceList();
         game.setEvidence(evidence);
-        
+
         Item[] possibleMurderWeapons = ItemControl.createPossibleMurderWeaponList();
         game.setWeapons(possibleMurderWeapons);
 
@@ -74,6 +75,10 @@ public class GameControl {
     }
 
     public static Item[] getWeaponsList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static Character[] getSuspectList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

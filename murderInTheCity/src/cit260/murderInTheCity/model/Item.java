@@ -16,7 +16,10 @@ public class Item implements Serializable {
 
     private String name;
     private String description;
-    //private boolean isEvidence;
+
+    public Item() {
+
+    }
 
     public String getName() {
         return name;
@@ -32,15 +35,6 @@ public class Item implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    //public boolean isIsEvidence() {
-    //    return isEvidence;
-    //}
-    //public void setIsEvidence(boolean isEvidence) {
-    //    this.isEvidence = isEvidence;
-    //}
-    public Item() {
     }
 
     @Override

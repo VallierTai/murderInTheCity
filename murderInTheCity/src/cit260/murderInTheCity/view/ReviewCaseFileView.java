@@ -7,14 +7,15 @@ package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.GameControl;
 import cit260.murderInTheCity.model.Item;
+import cit260.murderInTheCity.model.Character;
 import java.util.Arrays;
 
 /**
  *
- * @author mrbra
+ * @author Brad Bastian
  */
-class ReviewCaseFileView extends View{
-    
+class ReviewCaseFileView extends View {
+
     public ReviewCaseFileView() {
         super("\n"
                 + "\n--------------------------------------"
@@ -27,7 +28,7 @@ class ReviewCaseFileView extends View{
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
     }
-    
+
     @Override
     public boolean doAction(String choice) {
 
@@ -52,7 +53,7 @@ class ReviewCaseFileView extends View{
         }
         return false;
     }
-    
+
     private void evidenceList() {
         // get the list of evidence the player has collected
         Item[] evidence = GameControl.getEvidenceList();
@@ -66,24 +67,34 @@ class ReviewCaseFileView extends View{
                     + "\nDescription: " + item.getDescription());
         }
     }
-    
+
     private void viewPossibleMurderWeapons() {
         Item[] weapons = GameControl.getWeaponsList();
         Arrays.sort(weapons);
-        
+
         System.out.println("\nList of collected weapons");
 
         // for each piece of evidence
-        for (Item item : weapons) {
+        for (Item weapon : weapons) {
             // DISPLAY the name and description
-            System.out.println("Name: " + item.getName()
-                    + "\nDescription: " + item.getDescription());
+            System.out.println("Name: " + weapon.getName()
+                    + "\nDescription: " + weapon.getDescription());
         }
-           
+
     }
 
     private void suspectList() {
-        System.out.println("suspectList function called");
+        Character[] suspects = GameControl.getSuspectList();
+        Arrays.sort(suspects);
+
+        System.out.println("\nList of suspects");
+
+        // for each piece of evidence
+        for (Character suspect : suspects) {
+            // DISPLAY the name and description
+            System.out.println("Name: " + suspect.getName()
+                    + "\nDescription: " + suspect.getDescription());
+        }
     }
 
     private void solveCrime() {

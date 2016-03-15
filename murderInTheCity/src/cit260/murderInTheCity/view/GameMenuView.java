@@ -92,17 +92,17 @@ public class GameMenuView extends View {
         System.out.println("\n---------------------------------------------"
                 + "---------------");
     }
-    
+
     private void driveAroundCity() {
         DriveView driveView = new DriveView();
         driveView.display();
     }
-    
+
     private void calculateTimeOfDeath() {
         calculateTimeOfDeathView timeOfDeathView = new calculateTimeOfDeathView();
         timeOfDeathView.display();
     }
-    
+
     private void reviewCaseFile() {
         ReviewCaseFileView reviewCaseFileView = new ReviewCaseFileView();
         reviewCaseFileView.display();

@@ -63,7 +63,7 @@ public class Game implements Serializable {
     public void setCharacters(Character[] characters) {
         this.characters = characters;
     }
-    
+
     public Item[] getWeapons() {
         return weapons;
     }

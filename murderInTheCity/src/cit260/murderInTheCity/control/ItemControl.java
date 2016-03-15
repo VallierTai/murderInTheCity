@@ -13,10 +13,25 @@ import cit260.murderInTheCity.model.Item;
  */
 public class ItemControl {
 
+    public enum Evidence {
+        evidence1,
+        evidence2,
+        evidence3,
+        evidence4,
+        evidence5;
+    }
+
+    public enum Weapons {
+        Bat,
+        Trophy,
+        Lamp,
+        HockeyStick;
+    }
+
     public static Item[] createEvidenceList() {
 
         // created array(list) of evidence
-        Item[] evidence = new Item[6];
+        Item[] evidence = new Item[5];
 
         Item evidence1 = new Item();
         evidence1.setName("?");
@@ -43,23 +58,9 @@ public class ItemControl {
         evidence1.setDescription("?");
         evidence[Evidence.evidence5.ordinal()] = evidence5;
 
-        Item murderWeapon = new Item();
-        evidence1.setName("Murder weapon");
-        evidence1.setDescription("?");
-        evidence[Evidence.murderWeapon.ordinal()] = murderWeapon;
-
         return evidence;
     }
 
-    public enum Evidence {
-        evidence1,
-        evidence2,
-        evidence3,
-        evidence4,
-        evidence5,
-        murderWeapon;
-    }
-    
     public static Item[] createPossibleMurderWeaponList() {
         // created array(list) of evidence
         Item[] weapon = new Item[4];
@@ -86,11 +87,5 @@ public class ItemControl {
 
         return weapon;
     }
-    
-    public enum Weapons {
-        Bat,
-        Trophy,
-        Lamp,
-        HockeyStick;
-    }
+
 }
