@@ -7,6 +7,7 @@ package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.GameControl;
 import cit260.murderInTheCity.model.Item;
+import java.util.Arrays;
 
 /**
  *
@@ -67,7 +68,18 @@ class ReviewCaseFileView extends View{
     }
     
     private void viewPossibleMurderWeapons() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Item[] weapons = GameControl.getWeaponsList();
+        Arrays.sort(weapons);
+        
+        System.out.println("\nList of collected weapons");
+
+        // for each piece of evidence
+        for (Item item : weapons) {
+            // DISPLAY the name and description
+            System.out.println("Name: " + item.getName()
+                    + "\nDescription: " + item.getDescription());
+        }
+           
     }
 
     private void suspectList() {

@@ -59,5 +59,38 @@ public class ItemControl {
         evidence5,
         murderWeapon;
     }
+    
+    public static Item[] createPossibleMurderWeaponList() {
+        // created array(list) of evidence
+        Item[] weapon = new Item[4];
 
+        Item bat = new Item();
+        bat.setName("?");
+        bat.setDescription("?");
+        weapon[Weapons.Bat.ordinal()] = bat;
+
+        Item trophy = new Item();
+        trophy.setName("?");
+        trophy.setDescription("?");
+        weapon[Weapons.Trophy.ordinal()] = trophy;
+
+        Item lamp = new Item();
+        lamp.setName("?");
+        lamp.setDescription("?");
+        weapon[Weapons.Lamp.ordinal()] = lamp;
+
+        Item hockeyStick = new Item();
+        hockeyStick.setName("?");
+        hockeyStick.setDescription("?");
+        weapon[Weapons.HockeyStick.ordinal()] = hockeyStick;
+
+        return weapon;
+    }
+    
+    public enum Weapons {
+        Bat,
+        Trophy,
+        Lamp,
+        HockeyStick;
+    }
 }

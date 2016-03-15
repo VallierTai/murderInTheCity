@@ -47,6 +47,9 @@ public class GameControl {
         // create the inventory list and save in the game
         Item[] evidence = ItemControl.createEvidenceList();
         game.setEvidence(evidence);
+        
+        Item[] possibleMurderWeapons = ItemControl.createPossibleMurderWeaponList();
+        game.setWeapons(possibleMurderWeapons);
 
         // create new cases file
         Case[] cases = new Case[1];
@@ -67,6 +70,10 @@ public class GameControl {
     }
 
     public static Item[] getEvidenceList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static Item[] getWeaponsList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

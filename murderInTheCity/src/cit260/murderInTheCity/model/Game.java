@@ -19,6 +19,7 @@ public class Game implements Serializable {
     private Map[] maps;
     private Item[] evidence;
     private Character[] characters;
+    private Item[] weapons;
 
     public Game() {
     }
@@ -62,5 +63,12 @@ public class Game implements Serializable {
     public void setCharacters(Character[] characters) {
         this.characters = characters;
     }
+    
+    public Item[] getWeapons() {
+        return weapons;
+    }
 
+    public void setWeapons(Item[] weapons) {
+        this.weapons = weapons;
+    }
 }
