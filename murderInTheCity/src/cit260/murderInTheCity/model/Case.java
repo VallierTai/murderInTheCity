@@ -46,11 +46,11 @@ public class Case implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public String getSearchRadius() {
         return searchRadius;
     }
-    
+
     public void setSearchRadius(String searchRadius) {
         this.searchRadius = searchRadius;
     }

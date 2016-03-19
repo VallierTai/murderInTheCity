@@ -85,19 +85,17 @@ public class CalculateSearchRadiusView {
     }
 
     public void doAction(int speedOfTravel, String timeOfDeath) throws ParseException {
-        
+
         String searchRadius = null;
-        
+
         try {
             CaseControl.calculateSearchRadius(speedOfTravel, timeOfDeath);
-        }
-        catch(SearchRadiusException e) {
+        } catch (SearchRadiusException e) {
+            e.getMessage();
+        } catch (ParseException e) {
             e.getMessage();
         }
-        catch(ParseException e) {
-            e.getMessage();
-        }
-        
+
         Case[] cases = MurderInTheCity.getCurrentGame().getCases();
         searchRadius = cases[0].getSearchRadius();
         System.out.println(searchRadius);

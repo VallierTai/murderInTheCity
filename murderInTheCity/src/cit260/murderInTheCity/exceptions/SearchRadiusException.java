@@ -29,5 +29,5 @@ public class SearchRadiusException extends Exception {
     public SearchRadiusException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
+
 }

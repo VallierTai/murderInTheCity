@@ -21,13 +21,13 @@ import murderinthecity.MurderInTheCity;
  */
 public class CaseControl {
 
-    public static void calculateSearchRadius(int speedOfTravel, String timeOfDeath) 
+    public static void calculateSearchRadius(int speedOfTravel, String timeOfDeath)
             throws ParseException, SearchRadiusException {
         int radius = 0;
         long timeSinceDeath = 0;
         String searchRadius = null;
 
-        try{
+        try {
             SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
             Date before = sdf.parse("1:00 AM");
             Date after = sdf.parse("5:00 AM");
@@ -42,18 +42,14 @@ public class CaseControl {
                 timeSinceDeath = timeSinceDeath / (60 * 60 * 1000);
                 radius = (int) (timeSinceDeath * speedOfTravel);
                 searchRadius = "The victim's search radius is " + radius + " miles.";
-                
-            }
-            else {
+
+            } else {
                 throw new SearchRadiusException("Invalid input for speed of "
                         + "travel or time range.");
             }
-        }
-        catch(ParseException pe) {
+        } catch (ParseException pe) {
             pe.printStackTrace();
         }
-
-        
 
         Case[] cases = MurderInTheCity.getCurrentGame().getCases();
         cases[0].setSearchRadius(searchRadius);
