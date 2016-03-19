@@ -17,6 +17,7 @@ public class Case implements Serializable {
 
     private String name;
     private String description;
+    private String searchRadius;
     private Character victim;
     private Character suspect;
     private Item murderWeapon;
@@ -24,6 +25,7 @@ public class Case implements Serializable {
     public Case() {
         this.name = "Tempe case";
         this.description = "tempe case description";
+        this.searchRadius = null;
         this.victim = null;
         this.suspect = null;
         this.murderWeapon = null;
@@ -43,6 +45,14 @@ public class Case implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public String getSearchRadius() {
+        return searchRadius;
+    }
+    
+    public void setSearchRadius(String searchRadius) {
+        this.searchRadius = searchRadius;
     }
 
     public Character getVictim() {
@@ -74,6 +84,7 @@ public class Case implements Serializable {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.name);
         hash = 89 * hash + Objects.hashCode(this.description);
+        hash = 89 * hash + Objects.hashCode(this.searchRadius);
         hash = 89 * hash + Objects.hashCode(this.victim);
         hash = 89 * hash + Objects.hashCode(this.suspect);
         hash = 89 * hash + Objects.hashCode(this.murderWeapon);
@@ -98,6 +109,9 @@ public class Case implements Serializable {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.searchRadius, other.searchRadius)) {
+            return false;
+        }
         if (!Objects.equals(this.victim, other.victim)) {
             return false;
         }
@@ -112,6 +126,6 @@ public class Case implements Serializable {
 
     @Override
     public String toString() {
-        return "Case{" + "name=" + name + ", description=" + description + ", victim=" + victim + ", suspect=" + suspect + ", murderWeapon=" + murderWeapon + '}';
+        return "Case{" + "name=" + name + ", description=" + description + ", searchRadius=" + searchRadius + ", victim=" + victim + ", suspect=" + suspect + ", murderWeapon=" + murderWeapon + '}';
     }
 }

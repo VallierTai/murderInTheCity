@@ -6,7 +6,13 @@
 package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.CaseControl;
+import cit260.murderInTheCity.exceptions.SearchRadiusException;
+import cit260.murderInTheCity.model.Case;
+import java.text.ParseException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -71,13 +77,29 @@ public class CalculateSearchRadiusView {
                 }
             } while (timeOfDeath == "");
         }
-        doAction(speedOfTravel, timeOfDeath);
+        try {
+            doAction(speedOfTravel, timeOfDeath);
+        } catch (ParseException ex) {
+            ex.getMessage();
+        }
     }
 
-    public void doAction(int speedOfTravel, String timeOfDeath) {
-
-        String searchRadius = CaseControl.calculateSearchRadius(speedOfTravel, timeOfDeath);
-
+    public void doAction(int speedOfTravel, String timeOfDeath) throws ParseException {
+        
+        String searchRadius = null;
+        
+        try {
+            CaseControl.calculateSearchRadius(speedOfTravel, timeOfDeath);
+        }
+        catch(SearchRadiusException e) {
+            e.getMessage();
+        }
+        catch(ParseException e) {
+            e.getMessage();
+        }
+        
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        searchRadius = cases[0].getSearchRadius();
         System.out.println(searchRadius);
 
     }
