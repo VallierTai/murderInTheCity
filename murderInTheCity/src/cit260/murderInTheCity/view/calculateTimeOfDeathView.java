@@ -67,15 +67,19 @@ public class calculateTimeOfDeathView {
                 }
             } while (roomTemp == 0);
         }
-
+        try {
         doAction(bodyTemp, roomTemp);
-    }
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+    } 
 
     public void doAction(double bodyTemp, double roomTemp) {
         String timeOfDeath = "";
-
+    try {
         timeOfDeath = CaseControl.calculateTimeOfDeath(bodyTemp, roomTemp);
-
+    } catch (Exception e){
         System.out.println(timeOfDeath);
     }
+}
 }

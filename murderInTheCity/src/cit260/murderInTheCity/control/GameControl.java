@@ -23,18 +23,23 @@ public class GameControl {
     private static final int TEMPE_COLUMNS = 7;
 
     public static Player createPlayer(String name) {
+       
         if (name == null) {
             return null;
         }
 
         Player player = new Player();
         player.setName(name);
-
+       try {
         // save the player
         MurderInTheCity.setPlayer(player);
-
+        }catch (Exception ex) {
+            ex.getMessage();
+        }
         return player;
-    }
+        }
+    
+
 
     public static void createNewGame(Player player) {
         // create new game
