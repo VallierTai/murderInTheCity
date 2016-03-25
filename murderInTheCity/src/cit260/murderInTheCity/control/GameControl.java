@@ -5,12 +5,19 @@
  */
 package cit260.murderInTheCity.control;
 
+import cit260.murderInTheCity.exceptions.GameControlException;
 import cit260.murderInTheCity.model.Case;
 import cit260.murderInTheCity.model.Game;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Map;
 import cit260.murderInTheCity.model.Player;
 import cit260.murderInTheCity.model.Character;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import murderinthecity.MurderInTheCity;
 
 /**
@@ -23,23 +30,21 @@ public class GameControl {
     private static final int TEMPE_COLUMNS = 7;
 
     public static Player createPlayer(String name) {
-       
+
         if (name == null) {
             return null;
         }
 
         Player player = new Player();
         player.setName(name);
-       try {
-        // save the player
-        MurderInTheCity.setPlayer(player);
-        }catch (Exception ex) {
+        try {
+            // save the player
+            MurderInTheCity.setPlayer(player);
+        } catch (Exception ex) {
             ex.getMessage();
         }
         return player;
-        }
-    
-
+    }
 
     public static void createNewGame(Player player) {
         // create new game
@@ -85,5 +90,38 @@ public class GameControl {
 
     public static Character[] getSuspectList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void saveGame(Game game, String filepath)
+            throws GameControlException {
+
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+
+            // write the game object to the file
+            output.writeObject(game);
+        } catch (IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filepath)
+            throws GameControlException {
+
+        Game game = null;
+
+        try (FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+
+            // read the game object from file
+            game = (Game) output.readObject();
+        } catch (FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+
+        // close the output file
+        MurderInTheCity.setCurrentGame(game);
     }
 }
