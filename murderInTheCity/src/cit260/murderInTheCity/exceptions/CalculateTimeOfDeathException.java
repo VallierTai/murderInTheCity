@@ -9,28 +9,25 @@ package cit260.murderInTheCity.exceptions;
  *
  * @author Tai
  */
-public class CharacterControl extends Exception{
+public class CalculateTimeOfDeathException extends Exception {
 
-    public CharacterControl() {
+    public CalculateTimeOfDeathException() {
     }
 
-    public CharacterControl(String message) {
+    public CalculateTimeOfDeathException(String message) {
         super(message);
     }
 
-    public CharacterControl(String message, Throwable cause) {
+    public CalculateTimeOfDeathException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public CharacterControl(Throwable cause) {
+    public CalculateTimeOfDeathException(Throwable cause) {
         super(cause);
     }
 
-    public CharacterControl(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public CalculateTimeOfDeathException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
 
-    
-    
 }

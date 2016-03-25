@@ -5,7 +5,10 @@
  */
 package cit260.murderInTheCity.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -14,6 +17,8 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     protected String displayMessage;
+    protected final BufferedReader keyboard = MurderInTheCity.getInFile();
+    protected final PrintWriter console = MurderInTheCity.getOutFile();
 
     public View() {
     }
@@ -38,30 +43,72 @@ public abstract class View implements ViewInterface {
 
     public String getInput() {
 
-        Scanner keyboard = new Scanner(System.in);
         String value = null;
 
         // set flag to invalid value entered
         boolean valid = false;
-        // while a valid name has not been retrieved
-        while (!valid) {
-            // display menu
-            System.out.println("\n" + this.displayMessage);
+        try {
+            // while a valid name has not been retrieved
+            while (!valid) {
+                // display menu
+                this.console.println("\n" + this.displayMessage);
 
-            // get the name from the keyboard
-            value = keyboard.nextLine();
-            // trim off the excess blanks
-            value = value.trim();
+                // get the name from the keyboard
+                value = this.keyboard.readLine();
+                // trim off the excess blanks
+                value = value.trim();
 
-            // if the name is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("\n *** You must enter a value ***");
-                // and repeat again
-                continue;
+                // if the name is invalid (less than one character in length)
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(),
+                            "\n *** You must enter a value ***");
+                    // and repeat again
+                    continue;
+                }
+                // set flag to end repetition
+                break;
             }
-            // set flag to end repetition
-            break;
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
+
+        // return the value
+        return value;
+    }
+
+    public String getInput(String message) {
+
+        String value = null;
+
+        // set flag to invalid value entered
+        boolean valid = false;
+        try {
+            // while a valid name has not been retrieved
+            while (!valid) {
+                // display menu
+                this.console.println("\n" + message);
+
+                // get the name from the keyboard
+                value = this.keyboard.readLine();
+                // trim off the excess blanks
+                value = value.trim();
+
+                // if the name is invalid (less than one character in length)
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(),
+                            "\n *** You must enter a value ***");
+                    // and repeat again
+                    continue;
+                }
+                // set flag to end repetition
+                break;
+            }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
+
         // return the value
         return value;
     }

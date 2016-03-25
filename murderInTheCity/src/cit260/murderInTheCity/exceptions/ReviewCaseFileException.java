@@ -9,26 +9,25 @@ package cit260.murderInTheCity.exceptions;
  *
  * @author Tai
  */
-public class GameControl extends Exception {
+public class ReviewCaseFileException extends Exception {
 
-    public GameControl() {
+    public ReviewCaseFileException() {
     }
 
-    public GameControl(String message) {
+    public ReviewCaseFileException(String message) {
         super(message);
     }
 
-    public GameControl(String message, Throwable cause) {
+    public ReviewCaseFileException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public GameControl(Throwable cause) {
+    public ReviewCaseFileException(Throwable cause) {
         super(cause);
     }
 
-    public GameControl(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public ReviewCaseFileException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
-    
+
 }

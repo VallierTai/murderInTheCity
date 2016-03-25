@@ -99,7 +99,7 @@ public class GameMenuView extends View {
     }
 
     private void calculateTimeOfDeath() {
-        calculateTimeOfDeathView timeOfDeathView = new calculateTimeOfDeathView();
+        CalculateTimeOfDeathView timeOfDeathView = new CalculateTimeOfDeathView();
         timeOfDeathView.display();
     }
 

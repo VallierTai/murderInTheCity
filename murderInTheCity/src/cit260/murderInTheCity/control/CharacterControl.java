@@ -82,19 +82,16 @@ public class CharacterControl {
 
         // created array(list) of victims
         Character[] victims = new Character[1];
-        try{
-            
-        
+        try {
 
-        Character victim1 = new Character();
-        victim1.setName("?");
-        victim1.setDescription("?");
-        victims[Victims.TempeVictim.ordinal()] = victim1;
-     
-       
-    } catch (Exception e){
-        System.out.println("failure to create new character");
+            Character victim1 = new Character();
+            victim1.setName("?");
+            victim1.setDescription("?");
+            victims[Victims.TempeVictim.ordinal()] = victim1;
+
+        } catch (Exception e) {
+            System.out.println("failure to create new character");
+        }
+        return victims;
     }
-      return victims;  
-    } 
 }

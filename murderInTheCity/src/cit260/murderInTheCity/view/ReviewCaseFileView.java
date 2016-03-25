@@ -71,18 +71,18 @@ class ReviewCaseFileView extends View {
     private void viewPossibleMurderWeapons() {
         Item[] weapons = GameControl.getWeaponsList();
         Arrays.sort(weapons);
-    try {
-        System.out.println("\nList of collected weapons");
+        try {
+            System.out.println("\nList of collected weapons");
 
-        // for each piece of evidence
-        for (Item weapon : weapons) {
-            // DISPLAY the name and description
-            System.out.println("Name: " + weapon.getName()
-                    + "\nDescription: " + weapon.getDescription());
+            // for each piece of evidence
+            for (Item weapon : weapons) {
+                // DISPLAY the name and description
+                System.out.println("Name: " + weapon.getName()
+                        + "\nDescription: " + weapon.getDescription());
+            }
+        } catch (Exception e) {
+            System.out.println("failure to get weapon");
         }
-    } catch (Exception e){
-        System.out.println("failure to get weapon");
-    }
 
     }
 
