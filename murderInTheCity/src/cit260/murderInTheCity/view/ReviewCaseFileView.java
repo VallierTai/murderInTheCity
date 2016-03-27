@@ -8,6 +8,7 @@ package cit260.murderInTheCity.view;
 import cit260.murderInTheCity.control.GameControl;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Character;
+import java.io.FileWriter;
 import java.util.Arrays;
 
 /**
@@ -55,17 +56,20 @@ class ReviewCaseFileView extends View {
     }
 
     private void evidenceList() {
-        // get the list of evidence the player has collected
-        Item[] evidence = GameControl.getEvidenceList();
-
-        System.out.println("\nList of collected evidence");
-
-        // for each piece of evidence
-        for (Item item : evidence) {
-            // DISPLAY the name and description
-            System.out.println("Name: " + item.getName()
-                    + "\nDescription: " + item.getDescription());
+        boolean result = false;
+        
+        //If the Case File name is invalid prompt them to re-enter a case file.
+        while(!result) {
+            System.out.println("\nEnter the Case File Name: ");
+            String caseFile = System.console().readLine();
+            result = this.printEvidenceReport(caseFile);
+            if(!result) {
+                System.out.println("\n\nInvalid Case File Name.\n\n");
+            }
         }
+        
+        //Display the success message
+        System.out.println("\n\nCase File evidence list successfully printed.\n");
     }
 
     private void viewPossibleMurderWeapons() {
@@ -100,6 +104,40 @@ class ReviewCaseFileView extends View {
         }
     }
 
+    private boolean printEvidenceReport(String filePath) {
+        //if failed to open file return false
+        try (FileWriter writer = new FileWriter(filePath)) {
+            
+            //Title
+            String title = "\n\nEvidence List for Case File: " + filePath + "\n";
+            System.out.println(title);
+            writer.write(title);
+            
+            //Headers
+            String headers = "";
+            
+            // get the list of evidence the player has collected
+            Item[] evidence = GameControl.getEvidenceList();
+
+            // for each piece of evidence
+            for (Item item : evidence) {
+                // DISPLAY the name and description
+                System.out.println("Name: " + item.getName()
+                        + "\nDescription: " + item.getDescription());
+                
+                //Write line to file as well here
+            }
+
+            return true;
+        } catch (Exception e) {
+            String errorMessage = "Error opening file: " + filePath;
+            errorMessage += "  Exception: " + e;
+            ErrorView.display("ReviewCaseFileView", errorMessage);
+            
+            return false;
+        }
+    }
+    
     private void solveCrime() {
         System.out.println("solveCrime function called");
     }
