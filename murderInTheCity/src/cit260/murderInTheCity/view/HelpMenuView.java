@@ -56,22 +56,32 @@ public class HelpMenuView extends View {
     }
 
     private void purposeOfGame() {
-        System.out.println("\n purposeOfGame function called");
+       // System.out.println("\n purposeOfGame function called");
+        purposeOfGame purposeGameView = new purposeOfGame();
+        purposeGameView.display();
     }
 
     private void howToMove() {
-        System.out.println("\n howToMove function called");
+        //System.out.println("\n howToMove function called");
+        howToMove howToMoveView = new howToMove();
+        howToMoveView.display();
     }
 
     private void howToCalculateTimeOfDeath() {
-        System.out.println("\n howToCalculateTimeOfDeath function called");
+        //System.out.println("\n howToCalculateTimeOfDeath function called");
+        howToCalculateTimeOfDeath howToCalculateTimeOfDeathView = new howToCalculateTimeOfDeath();
+       howToCalculateTimeOfDeathView.display();
     }
 
     private void howToCalculateSearchRadius() {
-        System.out.println("\n howToCalculateSearchRadius function called");
+        //System.out.println("\n howToCalculateSearchRadius function called");
+        howToCalculateSearchRadius howToCalculateSearchRadiusView = new howToCalculateSearchRadius();
+        howToCalculateSearchRadiusView.display();
+        
     }
 
     private void howToValidateSuspectsAlibi() {
         System.out.println("\n howToValidateSuspectsAlibi function called");
+       
     }
 }
