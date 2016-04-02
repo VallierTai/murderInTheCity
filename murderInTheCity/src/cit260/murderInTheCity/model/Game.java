@@ -80,5 +80,5 @@ public class Game implements Serializable {
     public void setVictims(Character[] victims) {
         this.victims = victims;
     }
-    
+
 }

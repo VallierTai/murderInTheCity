@@ -42,7 +42,7 @@ public class MapControl {
             victim.setY(ThreadLocalRandom.current().nextInt(0, 7));
             tempeMapLocations[victim.getY()][victim.getX()].setVictim(victim);
         }
-        
+
         // set evidence on the map
         Item[] evidence = MurderInTheCity.getCurrentGame().getEvidence();
         for (Item e : evidence) {
@@ -58,7 +58,7 @@ public class MapControl {
             suspect.setY(ThreadLocalRandom.current().nextInt(0, 7));
             tempeMapLocations[suspect.getY()][suspect.getX()].setSuspect(suspect);
         }
-        
+
         // set weapons on the map
         Item[] weapons = MurderInTheCity.getCurrentGame().getWeapons();
         for (Item weapon : weapons) {
@@ -66,7 +66,7 @@ public class MapControl {
             weapon.setY(ThreadLocalRandom.current().nextInt(0, 7));
             tempeMapLocations[weapon.getY()][weapon.getX()].setMurderWeapon(weapon);
         }
-        
+
         map.setLocations(tempeMapLocations);
     }
 

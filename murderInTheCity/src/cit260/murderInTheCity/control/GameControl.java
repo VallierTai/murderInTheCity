@@ -82,17 +82,17 @@ public class GameControl {
                 + "\nrestaurant alone, she took the light rail to the restaurant "
                 + "\nand it was assumed that she took it home as well. When her "
                 + "\nroommate woke up at 6am and noticed Ashley missing she called "
-                + "\nthe police.\n" +
-                "\n" +
-                "We need you to find out what happened to Ashley once she left "
+                + "\nthe police.\n"
+                + "\n"
+                + "We need you to find out what happened to Ashley once she left "
                 + "\nthe restaurant! Who is her killer and what was the blunt object "
                 + "\nthat was used to strike her from behind? When you have gathered "
                 + "\nyour evidence and you are sure who the suspect is, you may "
                 + "\nsolve the crime. The medical examiner has told you that Ashley’s "
-                + "\nbody temperature was 95 degrees.\n" +
-                "\n" +
-                "Good Luck and watch your six!!";
-        Case tempeCase = new Case(tempeCaseName, tempeCaseDescription, 
+                + "\nbody temperature was 95 degrees.\n"
+                + "\n"
+                + "Good Luck and watch your six!!";
+        Case tempeCase = new Case(tempeCaseName, tempeCaseDescription,
                 victims[Victims.TempeVictim.ordinal()]);
         cases[0] = tempeCase;
         game.setCase(cases);

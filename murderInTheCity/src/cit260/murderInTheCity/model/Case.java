@@ -80,7 +80,6 @@ public class Case implements Serializable {
     public void setEvidence(Item evidence) {
         this.evidence.add(evidence);
     }
-    
 
     @Override
     public int hashCode() {

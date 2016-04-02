@@ -116,5 +116,4 @@ public class CaseControlTest {
         assertEquals(expResult8, result8);
     }
 
-    
 }

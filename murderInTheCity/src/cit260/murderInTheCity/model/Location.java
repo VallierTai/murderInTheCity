@@ -90,7 +90,6 @@ public class Location implements Serializable {
     public void setMurderWeapon(Item murderWeapon) {
         this.murderWeapon = murderWeapon;
     }
-    
 
     @Override
     public String toString() {

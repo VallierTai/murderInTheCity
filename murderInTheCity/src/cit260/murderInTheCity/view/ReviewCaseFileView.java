@@ -67,7 +67,7 @@ class ReviewCaseFileView extends View {
         String caseDescription = cases[0].getDescription();
         System.out.println("\n" + "\t" + caseName.toUpperCase() + caseDescription);
     }
-    
+
     private void evidenceList() {
         boolean result = false;
 
@@ -155,5 +155,4 @@ class ReviewCaseFileView extends View {
         System.out.println("solveCrime function called");
     }
 
-    
 }
