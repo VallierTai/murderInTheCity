@@ -13,8 +13,8 @@ import java.io.Serializable;
  * @author Tai
  */
 public class Location implements Serializable {
-    // class instance variables
 
+    // class instance variables
     private int row;
     private int column;
     private boolean visited;

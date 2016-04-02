@@ -73,23 +73,35 @@ public class DriveView extends View {
             block.setIsPlayerHere(true);
 
             if (block.getEvidence() != null) {
-                tempeCase.setEvidence(block.getEvidence());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a piece of evidence"
-                        + "\nName: " + block.getEvidence().getName()
-                        + "\nDescription: " + block.getEvidence().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setEvidence(block.getEvidence());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a piece of evidence"
+                            + "\nName: " + block.getEvidence().getName()
+                            + "\nDescription: " + block.getEvidence().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the evidence here");
+                }
             } else if (block.getMurderWeapon() != null) {
-                tempeCase.setMurderWeapon(block.getMurderWeapon());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a weapon"
-                        + "\nName: " + block.getMurderWeapon().getName()
-                        + "\nDescription: " + block.getMurderWeapon().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setMurderWeapon(block.getMurderWeapon());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a weapon"
+                            + "\nName: " + block.getMurderWeapon().getName()
+                            + "\nDescription: " + block.getMurderWeapon().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the weapon here");
+                }
             } else if (block.getSuspect() != null) {
-                tempeCase.setSuspect(block.getSuspect());
-                block.setVisited(true);
-                System.out.println("\nYou have just apprehended a suspect"
-                        + "\nName: " + block.getSuspect().getName()
-                        + "\nDescription: " + block.getSuspect().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setSuspect(block.getSuspect());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just apprehended a suspect"
+                            + "\nName: " + block.getSuspect().getName()
+                            + "\nDescription: " + block.getSuspect().getDescription());
+                } else {
+                    this.console.println("\nYou have already apprehended the suspect here");
+                }
             } else if (block.getVictim() != null) {
                 System.out.println("\nYou have found the victim. "
                         + "\nThe body temperature is 95 degrees.");
@@ -99,7 +111,6 @@ public class DriveView extends View {
         } else {
             System.out.println("\nYou cannot drive North");
         }
-
     }
 
     private void driveSouth() {
@@ -120,23 +131,35 @@ public class DriveView extends View {
             block.setIsPlayerHere(true);
 
             if (block.getEvidence() != null) {
-                tempeCase.setEvidence(block.getEvidence());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a piece of evidence"
-                        + "\nName: " + block.getEvidence().getName()
-                        + "\nDescription: " + block.getEvidence().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setEvidence(block.getEvidence());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a piece of evidence"
+                            + "\nName: " + block.getEvidence().getName()
+                            + "\nDescription: " + block.getEvidence().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the evidence here");
+                }
             } else if (block.getMurderWeapon() != null) {
-                tempeCase.setMurderWeapon(block.getMurderWeapon());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a weapon"
-                        + "\nName: " + block.getMurderWeapon().getName()
-                        + "\nDescription: " + block.getMurderWeapon().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setMurderWeapon(block.getMurderWeapon());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a weapon"
+                            + "\nName: " + block.getMurderWeapon().getName()
+                            + "\nDescription: " + block.getMurderWeapon().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the weapon here");
+                }
             } else if (block.getSuspect() != null) {
-                tempeCase.setSuspect(block.getSuspect());
-                block.setVisited(true);
-                System.out.println("\nYou have just apprehended a suspect"
-                        + "\nName: " + block.getSuspect().getName()
-                        + "\nDescription: " + block.getSuspect().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setSuspect(block.getSuspect());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just apprehended a suspect"
+                            + "\nName: " + block.getSuspect().getName()
+                            + "\nDescription: " + block.getSuspect().getDescription());
+                } else {
+                    this.console.println("\nYou have already apprehended the suspect here");
+                }
             } else if (block.getVictim() != null) {
                 System.out.println("\nYou have found the victim. "
                         + "\nThe body temperature is 95 degrees.");
@@ -166,23 +189,35 @@ public class DriveView extends View {
             block.setIsPlayerHere(true);
 
             if (block.getEvidence() != null) {
-                tempeCase.setEvidence(block.getEvidence());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a piece of evidence"
-                        + "\nName: " + block.getEvidence().getName()
-                        + "\nDescription: " + block.getEvidence().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setEvidence(block.getEvidence());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a piece of evidence"
+                            + "\nName: " + block.getEvidence().getName()
+                            + "\nDescription: " + block.getEvidence().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the evidence here");
+                }
             } else if (block.getMurderWeapon() != null) {
-                tempeCase.setMurderWeapon(block.getMurderWeapon());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a weapon"
-                        + "\nName: " + block.getMurderWeapon().getName()
-                        + "\nDescription: " + block.getMurderWeapon().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setMurderWeapon(block.getMurderWeapon());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a weapon"
+                            + "\nName: " + block.getMurderWeapon().getName()
+                            + "\nDescription: " + block.getMurderWeapon().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the weapon here");
+                }
             } else if (block.getSuspect() != null) {
-                tempeCase.setSuspect(block.getSuspect());
-                block.setVisited(true);
-                System.out.println("\nYou have just apprehended a suspect"
-                        + "\nName: " + block.getSuspect().getName()
-                        + "\nDescription: " + block.getSuspect().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setSuspect(block.getSuspect());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just apprehended a suspect"
+                            + "\nName: " + block.getSuspect().getName()
+                            + "\nDescription: " + block.getSuspect().getDescription());
+                } else {
+                    this.console.println("\nYou have already apprehended the suspect here");
+                }
             } else if (block.getVictim() != null) {
                 System.out.println("\nYou have found the victim. "
                         + "\nThe body temperature is 95 degrees.");
@@ -212,23 +247,35 @@ public class DriveView extends View {
             block.setIsPlayerHere(true);
 
             if (block.getEvidence() != null) {
-                tempeCase.setEvidence(block.getEvidence());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a piece of evidence"
-                        + "\nName: " + block.getEvidence().getName()
-                        + "\nDescription: " + block.getEvidence().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setEvidence(block.getEvidence());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a piece of evidence"
+                            + "\nName: " + block.getEvidence().getName()
+                            + "\nDescription: " + block.getEvidence().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the evidence here");
+                }
             } else if (block.getMurderWeapon() != null) {
-                tempeCase.setMurderWeapon(block.getMurderWeapon());
-                block.setVisited(true);
-                System.out.println("\nYou have just collected a weapon"
-                        + "\nName: " + block.getMurderWeapon().getName()
-                        + "\nDescription: " + block.getMurderWeapon().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setMurderWeapon(block.getMurderWeapon());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just collected a weapon"
+                            + "\nName: " + block.getMurderWeapon().getName()
+                            + "\nDescription: " + block.getMurderWeapon().getDescription());
+                } else {
+                    this.console.println("\nYou have already collected the weapon here");
+                }
             } else if (block.getSuspect() != null) {
-                tempeCase.setSuspect(block.getSuspect());
-                block.setVisited(true);
-                System.out.println("\nYou have just apprehended a suspect"
-                        + "\nName: " + block.getSuspect().getName()
-                        + "\nDescription: " + block.getSuspect().getDescription());
+                if (!block.getVisited()) {
+                    tempeCase.setSuspect(block.getSuspect());
+                    block.setVisited(true);
+                    System.out.println("\nYou have just apprehended a suspect"
+                            + "\nName: " + block.getSuspect().getName()
+                            + "\nDescription: " + block.getSuspect().getDescription());
+                } else {
+                    this.console.println("\nYou have already apprehended the suspect here");
+                }
             } else if (block.getVictim() != null) {
                 System.out.println("\nYou have found the victim. "
                         + "\nThe body temperature is 95 degrees.");
