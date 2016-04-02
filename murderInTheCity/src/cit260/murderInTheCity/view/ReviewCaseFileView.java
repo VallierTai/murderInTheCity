@@ -6,10 +6,12 @@
 package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.GameControl;
+import cit260.murderInTheCity.model.Case;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Character;
 import java.io.FileWriter;
 import java.util.Arrays;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -21,6 +23,7 @@ class ReviewCaseFileView extends View {
         super("\n"
                 + "\n--------------------------------------"
                 + "\n| Review Case File Menu "
+                + "\nC - View case description"
                 + "\nE - View evidence"
                 + "\nM - View possible murder weapons"
                 + "\nS - View suspects"
@@ -36,6 +39,9 @@ class ReviewCaseFileView extends View {
         choice = choice.toUpperCase(); // convert choice to upper case
 
         switch (choice) {
+            case "C": // view case description
+                this.caseDescription();
+                break;
             case "E": // view evidence
                 this.evidenceList();
                 break;
@@ -55,6 +61,13 @@ class ReviewCaseFileView extends View {
         return false;
     }
 
+    private void caseDescription() {
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        String caseName = cases[0].getName();
+        String caseDescription = cases[0].getDescription();
+        System.out.println("\n" + "\t" + caseName.toUpperCase() + caseDescription);
+    }
+    
     private void evidenceList() {
         boolean result = false;
 
@@ -141,4 +154,6 @@ class ReviewCaseFileView extends View {
     private void solveCrime() {
         System.out.println("solveCrime function called");
     }
+
+    
 }

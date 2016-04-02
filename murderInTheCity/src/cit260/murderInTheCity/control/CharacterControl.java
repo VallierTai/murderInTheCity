@@ -36,7 +36,7 @@ public class CharacterControl {
     }
 
     public enum Victims {
-        TempeVictim("Ashley", "She was a college student at ASU.");
+        TempeVictim("Ashley", "was a college student at ASU.");
 
         private final String name;
         private final String description;
@@ -83,12 +83,10 @@ public class CharacterControl {
         // created array(list) of victims
         Character[] victims = new Character[1];
         try {
-
             Character victim1 = new Character();
-            victim1.setName("?");
-            victim1.setDescription("?");
+            victim1.setName(Victims.TempeVictim.getName());
+            victim1.setDescription(Victims.TempeVictim.getDescription());
             victims[Victims.TempeVictim.ordinal()] = victim1;
-
         } catch (Exception e) {
             System.out.println("failure to create new character");
         }

@@ -78,8 +78,9 @@ public class CalculateTimeOfDeathView {
         String timeOfDeath = "";
         try {
             timeOfDeath = CaseControl.calculateTimeOfDeath(bodyTemp, roomTemp);
-        } catch (Exception e) {
             System.out.println(timeOfDeath);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
         }
     }
 }

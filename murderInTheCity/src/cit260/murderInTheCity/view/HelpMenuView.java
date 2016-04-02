@@ -20,8 +20,7 @@ public class HelpMenuView extends View {
                 + "\nP - Purpose of the game"
                 + "\nM - How to move in the game"
                 + "\nT - How to calculate time of death"
-                + "\nS - How to calculate search radius"
-                + "\nV - How to validate a suspect's alibi"
+                + "\nS - How to solve the murder"
                 + "\nQ - Return to Main Menu"
                 + "\n======================================"
                 + "\n\nPlease enter an option: ");
@@ -39,14 +38,11 @@ public class HelpMenuView extends View {
             case "M": // display how to move in the game
                 this.howToMove();
                 break;
+            case "S": // display how to solve the crime
+                this.solveCrime();
+                break;
             case "T": // display how to calculate time of death
                 this.howToCalculateTimeOfDeath();
-                break;
-            case "S": // display how to calculate search radius
-                this.howToCalculateSearchRadius();
-                break;
-            case "V": // display how to validate a suspect's alibi
-                this.howToValidateSuspectsAlibi();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -56,32 +52,29 @@ public class HelpMenuView extends View {
     }
 
     private void purposeOfGame() {
-       // System.out.println("\n purposeOfGame function called");
-        purposeOfGame purposeGameView = new purposeOfGame();
-        purposeGameView.display();
+        System.out.println("\nThe purpose of the game is to find the murderer and"
+                + "\nsolve the crime. You do this by driving around the city"
+                + "\ncollecting evidence, murder weapons, and suspects. Once you"
+                + "\ncollect all of it you should be able to solve the crime.");
     }
 
     private void howToMove() {
-        //System.out.println("\n howToMove function called");
-        howToMove howToMoveView = new howToMove();
-        howToMoveView.display();
+        System.out.println("\nGo to the Game Menu and select 'Drive around city'."
+                + "\nThen you can choose to go North, South, East or West.");
     }
 
     private void howToCalculateTimeOfDeath() {
-        //System.out.println("\n howToCalculateTimeOfDeath function called");
-        howToCalculateTimeOfDeath howToCalculateTimeOfDeathView = new howToCalculateTimeOfDeath();
-       howToCalculateTimeOfDeathView.display();
+        System.out.println("\nGo to the Game Menu and select 'Calculate time of "
+                + "\ndeath'. The body temperature must be between 90 and 106 degrees. "
+                + "\nThe room temperature must be between 50 and 120 degrees.");
     }
 
-    private void howToCalculateSearchRadius() {
-        //System.out.println("\n howToCalculateSearchRadius function called");
-        howToCalculateSearchRadius howToCalculateSearchRadiusView = new howToCalculateSearchRadius();
-        howToCalculateSearchRadiusView.display();
-        
+    private void solveCrime() {
+        System.out.println("\nGo to the Game Menu and then 'Review case file'."
+                + "\nYou will be asked to provide the name of the murderer, "
+                + "\nweapon used and time of death. If you answer all the "
+                + "\nquestions correctly, you will have solved the crime and "
+                + "\nyou will be promted to detective.");
     }
 
-    private void howToValidateSuspectsAlibi() {
-        System.out.println("\n howToValidateSuspectsAlibi function called");
-       
-    }
 }

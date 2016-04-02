@@ -71,7 +71,28 @@ public class GameControl {
         // save case in game
         Character[] victims = CharacterControl.createTempeVictim();
         game.setVictims(victims);
-        Case tempeCase = new Case("Tempe Case", "Tempe case description", 
+        String tempeCaseName = "Tempe case";
+        String tempeCaseDescription = "\nAshley was a college student at ASU and "
+                + "\non Friday night she went out with her friends to celebrate. "
+                + "\nIt was warm that night, about 85 degrees. They went to the "
+                + "\nlocal restaurant on Mill Ave. to celebrate after doing well "
+                + "\non her final exams. Approximately between the hours of midnight "
+                + "\nand 6 am Ashley was killed by a blunt object, when she was "
+                + "\nstruck from behind. She was last seen at 11:30 pm leaving the "
+                + "\nrestaurant alone, she took the light rail to the restaurant "
+                + "\nand it was assumed that she took it home as well. When her "
+                + "\nroommate woke up at 6am and noticed Ashley missing she called "
+                + "\nthe police.\n" +
+                "\n" +
+                "We need you to find out what happened to Ashley once she left "
+                + "\nthe restaurant! Who is her killer and what was the blunt object "
+                + "\nthat was used to strike her from behind? When you have gathered "
+                + "\nyour evidence and you are sure who the suspect is, you may "
+                + "\nsolve the crime. The medical examiner has told you that Ashley’s "
+                + "\nbody temperature was 95 degrees.\n" +
+                "\n" +
+                "Good Luck and watch your six!!";
+        Case tempeCase = new Case(tempeCaseName, tempeCaseDescription, 
                 victims[Victims.TempeVictim.ordinal()]);
         cases[0] = tempeCase;
         game.setCase(cases);

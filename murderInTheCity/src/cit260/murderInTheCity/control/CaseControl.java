@@ -54,19 +54,4 @@ public class CaseControl {
 
     }
 
-    public static boolean isPersonASuspect(int timeSinceDeath, int speedOfTravel) {
-        boolean suspect = false;
-        int suspectRadius = speedOfTravel * timeSinceDeath;
-        int searchRadius = timeSinceDeath * 3;
-
-        if (suspectRadius <= searchRadius) {
-            suspect = true;
-        }
-        return suspect;
-
-    }
-
-    public static int validateSuspectsAlibi(int speedOfTravel, int timeSinceDeath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
