@@ -10,19 +10,19 @@ package cit260.murderInTheCity.control;
  * @author mrbra
  */
 public class SolutionControl {
-    
+
     public enum tempeSolution {
-        
+
         timeOfDeath("4:00am"),
         murderer("Jason"),
         murderWeapon("Bat");
-        
+
         private final String guess;
-        
+
         tempeSolution(String guess) {
             this.guess = guess;
         }
-        
+
         public String getGuess() {
             return guess;
         }

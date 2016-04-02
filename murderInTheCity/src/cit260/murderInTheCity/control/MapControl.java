@@ -21,11 +21,12 @@ import java.util.ArrayList;
 public class MapControl {
 
     static void initializeMap(Map map) {
+
         // initialize map locations
         Location[][] tempeMapLocations = new Location[7][7];
-        for (int i = 0; i < tempeMapLocations.length; i++) {
+        for (Location[] tempeMapLocation : tempeMapLocations) {
             for (int j = 0; j < tempeMapLocations.length; j++) {
-                tempeMapLocations[i][j] = new Location();
+                tempeMapLocation[j] = new Location();
             }
         }
 
@@ -38,32 +39,56 @@ public class MapControl {
         // set victim on the map
         Character[] victims = MurderInTheCity.getCurrentGame().getVictims();
         for (Character victim : victims) {
-            victim.setX(ThreadLocalRandom.current().nextInt(0, 7));
-            victim.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            do {
+                victim.setX(ThreadLocalRandom.current().nextInt(0, 7));
+                victim.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            } while (tempeMapLocations[victim.getY()][victim.getX()].getIsPlayerHere() == true
+                    || tempeMapLocations[victim.getY()][victim.getX()].getEvidence() != null
+                    || tempeMapLocations[victim.getY()][victim.getX()].getMurderWeapon() != null
+                    || tempeMapLocations[victim.getY()][victim.getX()].getSuspect() != null
+                    || tempeMapLocations[victim.getY()][victim.getX()].getVictim() != null);
             tempeMapLocations[victim.getY()][victim.getX()].setVictim(victim);
         }
 
         // set evidence on the map
         ArrayList<Item> evidence = MurderInTheCity.getCurrentGame().getEvidence();
         for (Item e : evidence) {
-            e.setX(ThreadLocalRandom.current().nextInt(0, 7));
-            e.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            do {
+                e.setX(ThreadLocalRandom.current().nextInt(0, 7));
+                e.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            } while (tempeMapLocations[e.getY()][e.getX()].getIsPlayerHere() == true
+                    || tempeMapLocations[e.getY()][e.getX()].getEvidence() != null
+                    || tempeMapLocations[e.getY()][e.getX()].getMurderWeapon() != null
+                    || tempeMapLocations[e.getY()][e.getX()].getSuspect() != null
+                    || tempeMapLocations[e.getY()][e.getX()].getVictim() != null);
             tempeMapLocations[e.getY()][e.getX()].setEvidence(e);
         }
 
         // set suspects on the map
         ArrayList<Character> suspects = MurderInTheCity.getCurrentGame().getSuspects();
         for (Character suspect : suspects) {
-            suspect.setX(ThreadLocalRandom.current().nextInt(0, 7));
-            suspect.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            do {
+                suspect.setX(ThreadLocalRandom.current().nextInt(0, 7));
+                suspect.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            } while (tempeMapLocations[suspect.getY()][suspect.getX()].getIsPlayerHere() == true
+                    || tempeMapLocations[suspect.getY()][suspect.getX()].getEvidence() != null
+                    || tempeMapLocations[suspect.getY()][suspect.getX()].getMurderWeapon() != null
+                    || tempeMapLocations[suspect.getY()][suspect.getX()].getSuspect() != null
+                    || tempeMapLocations[suspect.getY()][suspect.getX()].getVictim() != null);
             tempeMapLocations[suspect.getY()][suspect.getX()].setSuspect(suspect);
         }
 
         // set weapons on the map
         ArrayList<Item> weapons = MurderInTheCity.getCurrentGame().getWeapons();
         for (Item weapon : weapons) {
-            weapon.setX(ThreadLocalRandom.current().nextInt(0, 7));
-            weapon.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            do {
+                weapon.setX(ThreadLocalRandom.current().nextInt(0, 7));
+                weapon.setY(ThreadLocalRandom.current().nextInt(0, 7));
+            } while (tempeMapLocations[weapon.getY()][weapon.getX()].getIsPlayerHere() == true
+                    || tempeMapLocations[weapon.getY()][weapon.getX()].getEvidence() != null
+                    || tempeMapLocations[weapon.getY()][weapon.getX()].getMurderWeapon() != null
+                    || tempeMapLocations[weapon.getY()][weapon.getX()].getSuspect() != null
+                    || tempeMapLocations[weapon.getY()][weapon.getX()].getVictim() != null);
             tempeMapLocations[weapon.getY()][weapon.getX()].setMurderWeapon(weapon);
         }
 

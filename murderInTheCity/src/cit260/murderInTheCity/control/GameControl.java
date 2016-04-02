@@ -93,7 +93,7 @@ public class GameControl {
                 + "\nbody temperature was 95 degrees.\n"
                 + "\n"
                 + "Good Luck and watch your six!!";
-        
+
         Case tempeCase = new Case(tempeCaseName, tempeCaseDescription,
                 victims[Victims.TempeVictim.ordinal()]);
         cases[0] = tempeCase;
@@ -115,21 +115,21 @@ public class GameControl {
     public static ArrayList<Item> getEvidenceList() {
         Case[] cases = MurderInTheCity.getCurrentGame().getCases();
         ArrayList<Item> evidence = cases[0].getEvidence();
-        
+
         return evidence;
     }
 
     public static ArrayList<Item> getWeaponsList() {
         Case[] cases = MurderInTheCity.getCurrentGame().getCases();
         ArrayList<Item> weapons = cases[0].getMurderWeapons();
-        
+
         return weapons;
     }
 
     public static ArrayList<Character> getSuspectList() {
         Case[] cases = MurderInTheCity.getCurrentGame().getCases();
         ArrayList<Character> suspects = cases[0].getSuspects();
-        
+
         return suspects;
     }
 
