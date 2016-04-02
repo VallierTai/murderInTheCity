@@ -7,6 +7,7 @@ package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.CaseControl;
 import cit260.murderInTheCity.control.GameControl;
+import cit260.murderInTheCity.control.MapControl;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Location;
 import cit260.murderInTheCity.model.Map;
@@ -58,39 +59,7 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        Map[] maps = MurderInTheCity.getCurrentGame().getMaps();
-        Map tempeMap = maps[0];
-        Location[][] tempeMapLocations = tempeMap.getLocations();
-        Location block;
-
-        System.out.println("\n" + tempeMap.getName() + "\n");
-
-        char alphabet = 'A';
-        for (int c = 0; c < tempeMap.getColumnCount(); c++) {
-            System.out.print("\t" + alphabet);
-            alphabet++;
-        }
-        //System.out.println("\n");
-        for (int i = 0; i < tempeMap.getRowCount(); i++) {
-            System.out.println("\n--------------------------------------------"
-                    + "----------------");
-            System.out.print(i + 1);
-
-            for (int j = 0; j < tempeMap.getColumnCount(); j++) {
-                System.out.print("   |");
-                block = tempeMapLocations[i][j];
-
-                if (block.isVisited()) {
-                    System.out.print("\tX");
-                } else {
-                    System.out.print("\t?");
-                }
-                //System.out.print(" |");
-            }
-            System.out.print("  |");
-        }
-        System.out.println("\n---------------------------------------------"
-                + "---------------");
+        MapControl.showMap();
     }
 
     private void driveAroundCity() {

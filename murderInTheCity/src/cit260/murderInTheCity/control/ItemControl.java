@@ -34,28 +34,28 @@ public class ItemControl {
         Item[] evidence = new Item[5];
 
         Item evidence1 = new Item();
-        evidence1.setName("?");
-        evidence1.setDescription("?");
+        evidence1.setName("evidence1");
+        evidence1.setDescription("evidenceDescription1");
         evidence[Evidence.evidence1.ordinal()] = evidence1;
 
         Item evidence2 = new Item();
-        evidence1.setName("?");
-        evidence1.setDescription("?");
+        evidence1.setName("evidence2");
+        evidence1.setDescription("evidenceDescription2");
         evidence[Evidence.evidence2.ordinal()] = evidence2;
 
         Item evidence3 = new Item();
-        evidence1.setName("?");
-        evidence1.setDescription("?");
+        evidence1.setName("evidence3");
+        evidence1.setDescription("evidenceDescription3");
         evidence[Evidence.evidence3.ordinal()] = evidence3;
 
         Item evidence4 = new Item();
-        evidence1.setName("?");
-        evidence1.setDescription("?");
+        evidence1.setName("evidence4");
+        evidence1.setDescription("evidenceDescription4");
         evidence[Evidence.evidence4.ordinal()] = evidence4;
 
         Item evidence5 = new Item();
-        evidence1.setName("?");
-        evidence1.setDescription("?");
+        evidence1.setName("evidence5");
+        evidence1.setDescription("evidenceDescription5");
         evidence[Evidence.evidence5.ordinal()] = evidence5;
 
         return evidence;
@@ -66,23 +66,23 @@ public class ItemControl {
         Item[] weapon = new Item[4];
 
         Item bat = new Item();
-        bat.setName("?");
-        bat.setDescription("?");
+        bat.setName("weapon1");
+        bat.setDescription("weaponDescription1");
         weapon[Weapons.Bat.ordinal()] = bat;
 
         Item trophy = new Item();
-        trophy.setName("?");
-        trophy.setDescription("?");
+        trophy.setName("weapon2");
+        trophy.setDescription("weaponDescription2");
         weapon[Weapons.Trophy.ordinal()] = trophy;
 
         Item lamp = new Item();
-        lamp.setName("?");
-        lamp.setDescription("?");
+        lamp.setName("weapon3");
+        lamp.setDescription("weaponDescription3");
         weapon[Weapons.Lamp.ordinal()] = lamp;
 
         Item hockeyStick = new Item();
-        hockeyStick.setName("?");
-        hockeyStick.setDescription("?");
+        hockeyStick.setName("weapon4");
+        hockeyStick.setDescription("weaponDescription4");
         weapon[Weapons.HockeyStick.ordinal()] = hockeyStick;
 
         return weapon;

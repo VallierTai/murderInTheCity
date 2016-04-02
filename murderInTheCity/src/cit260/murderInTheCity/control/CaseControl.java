@@ -5,55 +5,16 @@
  */
 package cit260.murderInTheCity.control;
 
-import cit260.murderInTheCity.exceptions.SearchRadiusException;
-import cit260.murderInTheCity.model.Case;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import murderinthecity.MurderInTheCity;
 
 /**
  *
  * @author Brad Bastian
  */
 public class CaseControl {
-
-    public static void calculateSearchRadius(int speedOfTravel, String timeOfDeath)
-            throws ParseException, SearchRadiusException {
-        int radius = 0;
-        long timeSinceDeath = 0;
-        String searchRadius = null;
-
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
-            Date before = sdf.parse("1:00 AM");
-            Date after = sdf.parse("5:00 AM");
-            Date toCheck = sdf.parse(timeOfDeath);
-            Date currentTime = sdf.parse("6:00 AM");
-
-            boolean isTimeValid = (before.getTime() <= toCheck.getTime())
-                    && after.getTime() >= toCheck.getTime();
-
-            if (speedOfTravel > 0 && speedOfTravel <= 5 && isTimeValid) {
-                timeSinceDeath = currentTime.getTime() - toCheck.getTime();
-                timeSinceDeath = timeSinceDeath / (60 * 60 * 1000);
-                radius = (int) (timeSinceDeath * speedOfTravel);
-                searchRadius = "The victim's search radius is " + radius + " miles.";
-
-            } else {
-                throw new SearchRadiusException("Invalid input for speed of "
-                        + "travel or time range.");
-            }
-        } catch (ParseException pe) {
-            pe.printStackTrace();
-        }
-
-        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
-        cases[0].setSearchRadius(searchRadius);
-    }
 
     public static String calculateTimeOfDeath(double bodyTemp, double roomTemp) {
         String foundBody = "6:00 AM";

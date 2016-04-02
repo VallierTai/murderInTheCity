@@ -57,17 +57,17 @@ class ReviewCaseFileView extends View {
 
     private void evidenceList() {
         boolean result = false;
-        
+
         //If the Case File name is invalid prompt them to re-enter a case file.
-        while(!result) {
+        while (!result) {
             System.out.println("\nEnter the Case File Name: ");
             String caseFile = System.console().readLine();
             result = this.printEvidenceReport(caseFile);
-            if(!result) {
+            if (!result) {
                 System.out.println("\n\nInvalid Case File Name.\n\n");
             }
         }
-        
+
         //Display the success message
         System.out.println("\n\nCase File evidence list successfully printed.\n");
     }
@@ -107,15 +107,15 @@ class ReviewCaseFileView extends View {
     private boolean printEvidenceReport(String filePath) {
         //if failed to open file return false
         try (FileWriter writer = new FileWriter(filePath)) {
-            
+
             //Title
             String title = "\n\nEvidence List for Case File: " + filePath + "\n";
             System.out.println(title);
             writer.write(title);
-            
+
             //Headers
             String headers = "";
-            
+
             // get the list of evidence the player has collected
             Item[] evidence = GameControl.getEvidenceList();
 
@@ -124,7 +124,7 @@ class ReviewCaseFileView extends View {
                 // DISPLAY the name and description
                 System.out.println("Name: " + item.getName()
                         + "\nDescription: " + item.getDescription());
-                
+
                 //Write line to file as well here
             }
 
@@ -133,11 +133,11 @@ class ReviewCaseFileView extends View {
             String errorMessage = "Error opening file: " + filePath;
             errorMessage += "  Exception: " + e;
             ErrorView.display("ReviewCaseFileView", errorMessage);
-            
+
             return false;
         }
     }
-    
+
     private void solveCrime() {
         System.out.println("solveCrime function called");
     }

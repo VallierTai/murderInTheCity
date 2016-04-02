@@ -5,9 +5,8 @@
  */
 package cit260.murderInTheCity.model;
 
+import cit260.murderInTheCity.control.CharacterControl.Victims;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  *
@@ -19,8 +18,11 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
-    private Character character;
+    private Player player;
+    private Character victim;
+    private Character suspect;
     private Item evidence;
+    private Item murderWeapon;
 
     public Location() {
     }
@@ -41,13 +43,54 @@ public class Location implements Serializable {
         this.column = column;
     }
 
-    public boolean isVisited() {
+    public boolean getVisited() {
         return visited;
     }
 
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Character getVictim() {
+        return victim;
+    }
+
+    public void setVictim(Character victim) {
+        this.victim = victim;
+    }
+
+    public Character getSuspect() {
+        return suspect;
+    }
+
+    public void setSuspect(Character suspect) {
+        this.suspect = suspect;
+    }
+
+    public Item getEvidence() {
+        return evidence;
+    }
+
+    public void setEvidence(Item evidence) {
+        this.evidence = evidence;
+    }
+
+    public Item getMurderWeapon() {
+        return murderWeapon;
+    }
+
+    public void setMurderWeapon(Item murderWeapon) {
+        this.murderWeapon = murderWeapon;
+    }
+    
 
     @Override
     public String toString() {

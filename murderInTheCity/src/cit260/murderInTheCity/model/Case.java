@@ -5,6 +5,7 @@
  */
 package cit260.murderInTheCity.model;
 
+import cit260.murderInTheCity.control.CharacterControl.Victims;
 import java.io.Serializable;
 import java.util.Objects;
 import cit260.murderInTheCity.model.Character;
@@ -17,18 +18,16 @@ public class Case implements Serializable {
 
     private String name;
     private String description;
-    private String searchRadius;
     private Character victim;
-    private Character suspect;
-    private Item murderWeapon;
+    private Character[] suspects;
+    private Item[] murderWeapons;
 
-    public Case() {
-        this.name = "Tempe case";
-        this.description = "tempe case description";
-        this.searchRadius = null;
-        this.victim = null;
-        this.suspect = null;
-        this.murderWeapon = null;
+    public Case(String name, String description, Character victim) {
+        this.name = name;
+        this.description = description;
+        this.victim = victim;
+        this.suspects = new Character[5];
+        this.murderWeapons = new Item[4];
     }
 
     public String getName() {
@@ -47,14 +46,6 @@ public class Case implements Serializable {
         this.description = description;
     }
 
-    public String getSearchRadius() {
-        return searchRadius;
-    }
-
-    public void setSearchRadius(String searchRadius) {
-        this.searchRadius = searchRadius;
-    }
-
     public Character getVictim() {
         return victim;
     }
@@ -63,20 +54,20 @@ public class Case implements Serializable {
         this.victim = victim;
     }
 
-    public Character getSuspect() {
-        return suspect;
+    public Character[] getSuspects() {
+        return suspects;
     }
 
-    public void setSuspect(Character suspect) {
-        this.suspect = suspect;
+    public void setSuspects(Character suspect) {
+        this.suspects = suspects;
     }
 
-    public Item getMurderWeapon() {
-        return murderWeapon;
+    public Item[] getMurderWeapons() {
+        return murderWeapons;
     }
 
-    public void setMurderWeapon(Item murderWeapon) {
-        this.murderWeapon = murderWeapon;
+    public void setMurderWeapons(Item murderWeapon) {
+        this.murderWeapons = murderWeapons;
     }
 
     @Override
@@ -84,10 +75,9 @@ public class Case implements Serializable {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.name);
         hash = 89 * hash + Objects.hashCode(this.description);
-        hash = 89 * hash + Objects.hashCode(this.searchRadius);
         hash = 89 * hash + Objects.hashCode(this.victim);
-        hash = 89 * hash + Objects.hashCode(this.suspect);
-        hash = 89 * hash + Objects.hashCode(this.murderWeapon);
+        hash = 89 * hash + Objects.hashCode(this.suspects);
+        hash = 89 * hash + Objects.hashCode(this.murderWeapons);
         return hash;
     }
 
@@ -109,16 +99,13 @@ public class Case implements Serializable {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.searchRadius, other.searchRadius)) {
-            return false;
-        }
         if (!Objects.equals(this.victim, other.victim)) {
             return false;
         }
-        if (!Objects.equals(this.suspect, other.suspect)) {
+        if (!Objects.equals(this.suspects, other.suspects)) {
             return false;
         }
-        if (!Objects.equals(this.murderWeapon, other.murderWeapon)) {
+        if (!Objects.equals(this.murderWeapons, other.murderWeapons)) {
             return false;
         }
         return true;
@@ -126,6 +113,6 @@ public class Case implements Serializable {
 
     @Override
     public String toString() {
-        return "Case{" + "name=" + name + ", description=" + description + ", searchRadius=" + searchRadius + ", victim=" + victim + ", suspect=" + suspect + ", murderWeapon=" + murderWeapon + '}';
+        return "Case{" + "name=" + name + ", description=" + description + ", victim=" + victim + ", suspect=" + suspects + ", murderWeapon=" + murderWeapons + '}';
     }
 }

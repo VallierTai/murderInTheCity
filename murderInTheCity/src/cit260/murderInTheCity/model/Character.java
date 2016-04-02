@@ -16,6 +16,8 @@ public class Character implements Serializable {
 
     private String name;
     private String description;
+    int x;
+    int y;
 
     public Character() {
 
@@ -35,6 +37,22 @@ public class Character implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
 }

@@ -5,6 +5,7 @@
  */
 package cit260.murderInTheCity.control;
 
+import cit260.murderInTheCity.control.CharacterControl.Victims;
 import cit260.murderInTheCity.exceptions.GameControlException;
 import cit260.murderInTheCity.model.Case;
 import cit260.murderInTheCity.model.Game;
@@ -59,25 +60,33 @@ public class GameControl {
         Item[] evidence = ItemControl.createEvidenceList();
         game.setEvidence(evidence);
 
+        Character[] suspects = CharacterControl.createSuspectList();
+        game.setSuspects(suspects);
+
         Item[] possibleMurderWeapons = ItemControl.createPossibleMurderWeaponList();
         game.setWeapons(possibleMurderWeapons);
 
         // create new cases file
         Case[] cases = new Case[1];
         // save case in game
+        Character[] victims = CharacterControl.createTempeVictim();
+        game.setVictims(victims);
+        Case tempeCase = new Case("Tempe Case", "Tempe case description", 
+                victims[Victims.TempeVictim.ordinal()]);
+        cases[0] = tempeCase;
         game.setCase(cases);
 
         // create and initialize maps
         Map[] maps = new Map[1];
-        // save map in game
-        game.setMaps(maps);
 
         // create tempeMap
         Map tempeMap = new Map("Map of Tempe", TEMPE_ROWS, TEMPE_COLUMNS);
         // add tempeMap to map collection
         maps[0] = tempeMap;
         // move characters to starting position in the map
-        MapControl.moveCharactersToStartingLocation(tempeMap);
+        MapControl.initializeMap(tempeMap);
+        // save map in game
+        game.setMaps(maps);
     }
 
     public static Item[] getEvidenceList() {
