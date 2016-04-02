@@ -18,7 +18,7 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
-    private Player player;
+    private boolean isPlayerHere;
     private Character victim;
     private Character suspect;
     private Item evidence;
@@ -51,12 +51,12 @@ public class Location implements Serializable {
         this.visited = visited;
     }
 
-    public Player getPlayer() {
-        return player;
+    public boolean getIsPlayerHere() {
+        return isPlayerHere;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setIsPlayerHere(boolean isPlayerHere) {
+        this.isPlayerHere = isPlayerHere;
     }
 
     public Character getVictim() {

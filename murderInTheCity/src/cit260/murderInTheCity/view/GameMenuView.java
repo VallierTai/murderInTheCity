@@ -5,14 +5,7 @@
  */
 package cit260.murderInTheCity.view;
 
-import cit260.murderInTheCity.control.CaseControl;
-import cit260.murderInTheCity.control.GameControl;
 import cit260.murderInTheCity.control.MapControl;
-import cit260.murderInTheCity.model.Item;
-import cit260.murderInTheCity.model.Location;
-import cit260.murderInTheCity.model.Map;
-import java.util.Scanner;
-import murderinthecity.MurderInTheCity;
 
 /**
  *

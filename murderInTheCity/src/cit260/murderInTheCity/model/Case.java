@@ -9,6 +9,7 @@ import cit260.murderInTheCity.control.CharacterControl.Victims;
 import java.io.Serializable;
 import java.util.Objects;
 import cit260.murderInTheCity.model.Character;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,15 +20,17 @@ public class Case implements Serializable {
     private String name;
     private String description;
     private Character victim;
-    private Character[] suspects;
-    private Item[] murderWeapons;
+    private ArrayList<Character> suspects;
+    private ArrayList<Item> murderWeapons;
+    private ArrayList<Item> evidence;
 
     public Case(String name, String description, Character victim) {
         this.name = name;
         this.description = description;
         this.victim = victim;
-        this.suspects = new Character[5];
-        this.murderWeapons = new Item[4];
+        this.suspects = new ArrayList<Character>();
+        this.murderWeapons = new ArrayList<Item>();
+        this.evidence = new ArrayList<Item>();
     }
 
     public String getName() {
@@ -54,21 +57,30 @@ public class Case implements Serializable {
         this.victim = victim;
     }
 
-    public Character[] getSuspects() {
+    public ArrayList<Character> getSuspects() {
         return suspects;
     }
 
-    public void setSuspects(Character suspect) {
-        this.suspects = suspects;
+    public void setSuspect(Character suspect) {
+        this.suspects.add(suspect);
     }
 
-    public Item[] getMurderWeapons() {
+    public ArrayList<Item> getMurderWeapons() {
         return murderWeapons;
     }
 
-    public void setMurderWeapons(Item murderWeapon) {
-        this.murderWeapons = murderWeapons;
+    public void setMurderWeapon(Item murderWeapon) {
+        this.murderWeapons.add(murderWeapon);
     }
+
+    public ArrayList<Item> getEvidence() {
+        return evidence;
+    }
+
+    public void setEvidence(Item evidence) {
+        this.evidence.add(evidence);
+    }
+    
 
     @Override
     public int hashCode() {

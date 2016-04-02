@@ -31,16 +31,16 @@ public class MapControl {
 
         // set player location on the map
         Player player = MurderInTheCity.getCurrentGame().getPlayer();
-        int playerPositionX = ThreadLocalRandom.current().nextInt(0, 7);
-        int playerPositionY = ThreadLocalRandom.current().nextInt(0, 7);
-        tempeMapLocations[playerPositionX][playerPositionY].setPlayer(player);
+        player.setX(ThreadLocalRandom.current().nextInt(0, 7));
+        player.setY(ThreadLocalRandom.current().nextInt(0, 7));
+        tempeMapLocations[player.getY()][player.getX()].setIsPlayerHere(true);
 
         // set victim on the map
         Character[] victims = MurderInTheCity.getCurrentGame().getVictims();
         for (Character victim : victims) {
             victim.setX(ThreadLocalRandom.current().nextInt(0, 7));
             victim.setY(ThreadLocalRandom.current().nextInt(0, 7));
-            tempeMapLocations[victim.getX()][victim.getY()].setVictim(victim);
+            tempeMapLocations[victim.getY()][victim.getX()].setVictim(victim);
         }
         
         // set evidence on the map
@@ -48,7 +48,7 @@ public class MapControl {
         for (Item e : evidence) {
             e.setX(ThreadLocalRandom.current().nextInt(0, 7));
             e.setY(ThreadLocalRandom.current().nextInt(0, 7));
-            tempeMapLocations[e.getX()][e.getY()].setEvidence(e);
+            tempeMapLocations[e.getY()][e.getX()].setEvidence(e);
         }
 
         // set suspects on the map
@@ -56,7 +56,7 @@ public class MapControl {
         for (Character suspect : suspects) {
             suspect.setX(ThreadLocalRandom.current().nextInt(0, 7));
             suspect.setY(ThreadLocalRandom.current().nextInt(0, 7));
-            tempeMapLocations[suspect.getX()][suspect.getY()].setSuspect(suspect);
+            tempeMapLocations[suspect.getY()][suspect.getX()].setSuspect(suspect);
         }
         
         // set weapons on the map
@@ -64,7 +64,7 @@ public class MapControl {
         for (Item weapon : weapons) {
             weapon.setX(ThreadLocalRandom.current().nextInt(0, 7));
             weapon.setY(ThreadLocalRandom.current().nextInt(0, 7));
-            tempeMapLocations[weapon.getX()][weapon.getY()].setMurderWeapon(weapon);
+            tempeMapLocations[weapon.getY()][weapon.getX()].setMurderWeapon(weapon);
         }
         
         map.setLocations(tempeMapLocations);
@@ -76,7 +76,7 @@ public class MapControl {
         Map tempeMap = maps[0];
         Location[][] tempeMapLocations = tempeMap.getLocations();
 
-        System.out.println("\n" + tempeMap.getName() + "\n");
+        System.out.println("\n" + tempeMap.getName().toUpperCase() + "\n");
 
         char alphabet = 'A';
         for (int c = 0; c < tempeMap.getColumnCount(); c++) {
@@ -93,10 +93,11 @@ public class MapControl {
                 System.out.print("   |");
                 block = tempeMapLocations[i][j];
 
-                if (block.getVisited()) {
-                    System.out.print("\tX");
-                } else if (block.getPlayer() != null) {
+                if (block.getIsPlayerHere()) {
                     System.out.print("\tP");
+                } else if (block.getVisited()) {
+                    System.out.print("\tX");
+                    block.setVisited(true);
                 } else if (block.getEvidence() != null) {
                     System.out.print("\tE");
                 } else if (block.getSuspect() != null) {
@@ -113,6 +114,14 @@ public class MapControl {
         }
         System.out.println("\n---------------------------------------------"
                 + "---------------");
+        System.out.println("\nMAP LEGEND:"
+                + "\nX - Visited"
+                + "\nP - Player"
+                + "\nE - Evidence"
+                + "\nS - Suspect"
+                + "\nV - Victim"
+                + "\nW - Weapon"
+                + "\n* - Not visited");
     }
 
 }
