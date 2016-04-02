@@ -90,6 +90,9 @@ public class DriveView extends View {
                 System.out.println("\nYou have just apprehended a suspect"
                         + "\nName: " + block.getSuspect().getName()
                         + "\nDescription: " + block.getSuspect().getDescription());
+            } else if (block.getVictim() != null) {
+                System.out.println("\nYou have found the victim. "
+                        + "\nThe body temperature is 95 degrees.");
             } else {
                 System.out.println("\nYou drove North and found nothing");
             }
@@ -134,6 +137,9 @@ public class DriveView extends View {
                 System.out.println("\nYou have just apprehended a suspect"
                         + "\nName: " + block.getSuspect().getName()
                         + "\nDescription: " + block.getSuspect().getDescription());
+            } else if (block.getVictim() != null) {
+                System.out.println("\nYou have found the victim. "
+                        + "\nThe body temperature is 95 degrees.");
             } else {
                 System.out.println("\nYou drove South and found nothing");
             }
@@ -177,6 +183,9 @@ public class DriveView extends View {
                 System.out.println("\nYou have just apprehended a suspect"
                         + "\nName: " + block.getSuspect().getName()
                         + "\nDescription: " + block.getSuspect().getDescription());
+            } else if (block.getVictim() != null) {
+                System.out.println("\nYou have found the victim. "
+                        + "\nThe body temperature is 95 degrees.");
             } else {
                 System.out.println("\nYou drove East and found nothing");
             }
@@ -220,6 +229,9 @@ public class DriveView extends View {
                 System.out.println("\nYou have just apprehended a suspect"
                         + "\nName: " + block.getSuspect().getName()
                         + "\nDescription: " + block.getSuspect().getDescription());
+            } else if (block.getVictim() != null) {
+                System.out.println("\nYou have found the victim. "
+                        + "\nThe body temperature is 95 degrees.");
             } else {
                 System.out.println("\nYou drove West and found nothing");
             }

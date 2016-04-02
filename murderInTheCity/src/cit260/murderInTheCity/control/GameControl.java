@@ -89,8 +89,7 @@ public class GameControl {
                 + "\nthe restaurant! Who is her killer and what was the blunt object "
                 + "\nthat was used to strike her from behind? When you have gathered "
                 + "\nyour evidence and you are sure who the suspect is, you may "
-                + "\nsolve the crime. The medical examiner has told you that Ashley’s "
-                + "\nbody temperature was 95 degrees.\n"
+                + "\nsolve the crime.\n"
                 + "\n"
                 + "Good Luck and watch your six!!";
 

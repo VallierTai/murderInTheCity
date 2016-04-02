@@ -121,8 +121,12 @@ public class MapControl {
                 if (block.getIsPlayerHere()) {
                     System.out.print("\tP");
                 } else if (block.getVisited()) {
-                    System.out.print("\tX");
-                    block.setVisited(true);
+                    if (block.getVictim() == null) {
+                        System.out.print("\tX");
+                        block.setVisited(true);
+                    } else {
+                        System.out.print("\tV");
+                    }
                 } else if (block.getEvidence() != null) {
                     System.out.print("\tE");
                 } else if (block.getSuspect() != null) {
