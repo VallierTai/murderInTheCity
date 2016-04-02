@@ -17,13 +17,6 @@ import murderinthecity.MurderInTheCity;
  */
 public class DriveView extends View {
 
-    Map[] maps = MurderInTheCity.getCurrentGame().getMaps();
-    Location[][] tempeLocations = maps[0].getLocations();
-    Player player = MurderInTheCity.getPlayer();
-    Location block = tempeLocations[player.getY()][player.getX()];
-    Case[] cases = MurderInTheCity.getCurrentGame().getCases();
-    Case tempeCase = cases[0];
-
     public DriveView() {
         super("\n"
                 + "\n--------------------------------------"
@@ -64,6 +57,13 @@ public class DriveView extends View {
 
     private void driveNorth() {
 
+        Map[] maps = MurderInTheCity.getCurrentGame().getMaps();
+        Location[][] tempeLocations = maps[0].getLocations();
+        Player player = MurderInTheCity.getPlayer();
+        Location block = tempeLocations[player.getY()][player.getX()];
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        Case tempeCase = cases[0];
+
         if (player.getY() != 0) {
             block.setIsPlayerHere(false);
             player.setY(player.getY() - 1);
@@ -100,6 +100,14 @@ public class DriveView extends View {
     }
 
     private void driveSouth() {
+
+        Map[] maps = MurderInTheCity.getCurrentGame().getMaps();
+        Location[][] tempeLocations = maps[0].getLocations();
+        Player player = MurderInTheCity.getPlayer();
+        Location block = tempeLocations[player.getY()][player.getX()];
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        Case tempeCase = cases[0];
+
         if (player.getY() != 6) {
             block.setIsPlayerHere(false);
             player.setY(player.getY() + 1);
@@ -135,6 +143,14 @@ public class DriveView extends View {
     }
 
     private void driveEast() {
+
+        Map[] maps = MurderInTheCity.getCurrentGame().getMaps();
+        Location[][] tempeLocations = maps[0].getLocations();
+        Player player = MurderInTheCity.getPlayer();
+        Location block = tempeLocations[player.getY()][player.getX()];
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        Case tempeCase = cases[0];
+
         if (player.getX() != 6) {
             block.setIsPlayerHere(false);
             player.setX(player.getX() + 1);
@@ -170,6 +186,14 @@ public class DriveView extends View {
     }
 
     private void driveWest() {
+
+        Map[] maps = MurderInTheCity.getCurrentGame().getMaps();
+        Location[][] tempeLocations = maps[0].getLocations();
+        Player player = MurderInTheCity.getPlayer();
+        Location block = tempeLocations[player.getY()][player.getX()];
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        Case tempeCase = cases[0];
+
         if (player.getX() != 0) {
             block.setIsPlayerHere(false);
             player.setX(player.getX() - 1);

@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import murderinthecity.MurderInTheCity;
 
 /**
@@ -57,13 +58,13 @@ public class GameControl {
         game.setPlayer(player);
 
         // create the inventory list and save in the game
-        Item[] evidence = ItemControl.createEvidenceList();
+        ArrayList<Item> evidence = ItemControl.createEvidenceList();
         game.setEvidence(evidence);
 
-        Character[] suspects = CharacterControl.createSuspectList();
+        ArrayList<Character> suspects = CharacterControl.createSuspectList();
         game.setSuspects(suspects);
 
-        Item[] possibleMurderWeapons = ItemControl.createPossibleMurderWeaponList();
+        ArrayList<Item> possibleMurderWeapons = ItemControl.createPossibleMurderWeaponList();
         game.setWeapons(possibleMurderWeapons);
 
         // create new cases file
@@ -92,6 +93,7 @@ public class GameControl {
                 + "\nbody temperature was 95 degrees.\n"
                 + "\n"
                 + "Good Luck and watch your six!!";
+        
         Case tempeCase = new Case(tempeCaseName, tempeCaseDescription,
                 victims[Victims.TempeVictim.ordinal()]);
         cases[0] = tempeCase;
@@ -110,16 +112,25 @@ public class GameControl {
         game.setMaps(maps);
     }
 
-    public static Item[] getEvidenceList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static ArrayList<Item> getEvidenceList() {
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        ArrayList<Item> evidence = cases[0].getEvidence();
+        
+        return evidence;
     }
 
-    public static Item[] getWeaponsList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static ArrayList<Item> getWeaponsList() {
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        ArrayList<Item> weapons = cases[0].getMurderWeapons();
+        
+        return weapons;
     }
 
-    public static Character[] getSuspectList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static ArrayList<Character> getSuspectList() {
+        Case[] cases = MurderInTheCity.getCurrentGame().getCases();
+        ArrayList<Character> suspects = cases[0].getSuspects();
+        
+        return suspects;
     }
 
     public static void saveGame(Game game, String filepath)

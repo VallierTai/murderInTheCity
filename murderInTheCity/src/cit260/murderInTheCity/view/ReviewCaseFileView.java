@@ -6,11 +6,13 @@
 package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.GameControl;
+import cit260.murderInTheCity.control.SolutionControl.tempeSolution;
 import cit260.murderInTheCity.model.Case;
 import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Character;
 import java.io.FileWriter;
-import java.util.Arrays;
+import java.io.IOException;
+import java.util.ArrayList;
 import murderinthecity.MurderInTheCity;
 
 /**
@@ -69,51 +71,54 @@ class ReviewCaseFileView extends View {
     }
 
     private void evidenceList() {
-        boolean result = false;
+        // get the list of evidence the player has collected
+        ArrayList<Item> evidence = GameControl.getEvidenceList();
 
-        //If the Case File name is invalid prompt them to re-enter a case file.
-        while (!result) {
-            System.out.println("\nEnter the Case File Name: ");
-            String caseFile = System.console().readLine();
-            result = this.printEvidenceReport(caseFile);
-            if (!result) {
-                System.out.println("\n\nInvalid Case File Name.\n\n");
+        if (!evidence.isEmpty()) {
+            System.out.println("\nEVIDENCE LIST");
+            // for each piece of evidence
+            for (Item e : evidence) {
+                // display the name and description
+                System.out.println("\nName: " + e.getName()
+                        + "\nDescription: " + e.getDescription());
             }
+        } else {
+            System.out.println("You have not collected any evidence");
         }
 
-        //Display the success message
-        System.out.println("\n\nCase File evidence list successfully printed.\n");
     }
 
     private void viewPossibleMurderWeapons() {
-        Item[] weapons = GameControl.getWeaponsList();
-        Arrays.sort(weapons);
-        try {
-            System.out.println("\nList of collected weapons");
+        // get the list of weapons the player has collected
+        ArrayList<Item> weapons = GameControl.getWeaponsList();
 
+        if (!weapons.isEmpty()) {
+            System.out.println("\nWEAPON LIST");
             // for each piece of evidence
             for (Item weapon : weapons) {
-                // DISPLAY the name and description
-                System.out.println("Name: " + weapon.getName()
-                        + "\nDescription: " + weapon.getDescription());
+                // display the name and description
+                System.out.println("\nName: " + weapon.getName());
             }
-        } catch (Exception e) {
-            System.out.println("failure to get weapon");
+        } else {
+            System.out.println("\nYou have not collected any possible murder weapons");
         }
 
     }
 
     private void suspectList() {
-        Character[] suspects = GameControl.getSuspectList();
-        Arrays.sort(suspects);
+        // get the list of suspects the player has apprehended
+        ArrayList<Character> suspects = GameControl.getSuspectList();
 
-        System.out.println("\nList of suspects");
-
-        // for each piece of evidence
-        for (Character suspect : suspects) {
-            // DISPLAY the name and description
-            System.out.println("Name: " + suspect.getName()
-                    + "\nDescription: " + suspect.getDescription());
+        if (!suspects.isEmpty()) {
+            System.out.println("\nSUSPECT LIST");
+            // for each piece of evidence
+            for (Character suspect : suspects) {
+                // display the name and description
+                System.out.println("\nName: " + suspect.getName()
+                        + "\nDescription: " + suspect.getDescription());
+            }
+        } else {
+            System.out.println("\nYou have not apprehended any suspects");
         }
     }
 
@@ -130,7 +135,7 @@ class ReviewCaseFileView extends View {
             String headers = "";
 
             // get the list of evidence the player has collected
-            Item[] evidence = GameControl.getEvidenceList();
+            ArrayList<Item> evidence = GameControl.getEvidenceList();
 
             // for each piece of evidence
             for (Item item : evidence) {
@@ -152,7 +157,100 @@ class ReviewCaseFileView extends View {
     }
 
     private void solveCrime() {
-        System.out.println("solveCrime function called");
+
+        boolean valid = false;
+        String todGuess = "";
+        String murdererGuess = "";
+        String murderWeaponGuess = "";
+
+        String tod = tempeSolution.timeOfDeath.getGuess();
+        String murderer = tempeSolution.murderer.getGuess();
+        String murderWeapon = tempeSolution.murderWeapon.getGuess();
+
+        this.console.println("\nReady to solve the crime?"
+                + "\nYou need to answer 3 questions correctly. Good luck!");
+
+        while (!valid) {
+            this.console.println("\nWhat was the time of death of the victim? (i.e. 2:00am) ");
+
+            try {
+                // get the time of death from the keyboard
+                todGuess = this.keyboard.readLine();
+                // trim off the excess blanks
+                todGuess = todGuess.trim();
+            } catch (IOException e) {
+                this.console.println(e.getMessage());
+            }
+
+            // if the name is invalid (less than one character in length)
+            if (todGuess.length() < 1) {
+                ErrorView.display(this.getClass().getName(),
+                        "\n *** You must enter a value ***");
+                // and repeat again
+                continue;
+            }
+            // set flag to end repetition
+            break;
+        }
+
+        while (!valid) {
+            this.console.println("\nWho was the murderer? ");
+
+            try {
+                // get the time of death from the keyboard
+                murdererGuess = this.keyboard.readLine();
+                // trim off the excess blanks
+                murdererGuess = murdererGuess.trim();
+            } catch (IOException e) {
+                this.console.println(e.getMessage());
+            }
+
+            // if the name is invalid (less than one character in length)
+            if (murdererGuess.length() < 1) {
+                ErrorView.display(this.getClass().getName(),
+                        "\n *** You must enter a value ***");
+                // and repeat again
+                continue;
+            }
+            // set flag to end repetition
+            break;
+        }
+
+        while (!valid) {
+            this.console.println("\nWhat was the murder weapon? ");
+
+            try {
+                // get the time of death from the keyboard
+                murderWeaponGuess = this.keyboard.readLine();
+                // trim off the excess blanks
+                murderWeaponGuess = murderWeaponGuess.trim();
+            } catch (IOException e) {
+                this.console.println(e.getMessage());
+            }
+
+            // if the name is invalid (less than one character in length)
+            if (murderWeaponGuess.length() < 1) {
+                ErrorView.display(this.getClass().getName(),
+                        "\n *** You must enter a value ***");
+                // and repeat again
+                continue;
+            }
+            // set flag to end repetition
+            break;
+        }
+
+        if (todGuess.toUpperCase().equals(tod.toUpperCase())
+                && murdererGuess.toUpperCase().equals(murderer.toUpperCase())
+                && murderWeaponGuess.toUpperCase().equals(murderWeapon.toUpperCase())) {
+            this.console.println("\nYou solved the crime."
+                    + "\n\nCONGRATULATIONS, you have been promoted to detective!"
+                    + "\n\nGAME OVER");
+            System.exit(0);
+        } else {
+            this.console.println("\nSorry, you did not choose wisely."
+                    + "\n\nGAME OVER");
+            System.exit(0);
+        }
     }
 
 }

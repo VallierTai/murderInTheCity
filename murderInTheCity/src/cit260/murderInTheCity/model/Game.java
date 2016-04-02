@@ -7,6 +7,7 @@ package cit260.murderInTheCity.model;
 
 import cit260.murderInTheCity.control.CharacterControl.Victims;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,9 +18,9 @@ public class Game implements Serializable {
     private Player player;
     private Case[] cases;
     private Map[] maps;
-    private Item[] evidence;
-    private Character[] suspects;
-    private Item[] weapons;
+    private ArrayList<Item> evidence;
+    private ArrayList<Character> suspects;
+    private ArrayList<Item> weapons;
     private Character[] victims;
 
     public Game() {
@@ -49,27 +50,27 @@ public class Game implements Serializable {
         this.maps = maps;
     }
 
-    public Item[] getEvidence() {
+    public ArrayList<Item> getEvidence() {
         return evidence;
     }
 
-    public void setEvidence(Item[] evidence) {
+    public void setEvidence(ArrayList<Item> evidence) {
         this.evidence = evidence;
     }
 
-    public Character[] getSuspects() {
+    public ArrayList<Character> getSuspects() {
         return suspects;
     }
 
-    public void setSuspects(Character[] suspects) {
+    public void setSuspects(ArrayList<Character> suspects) {
         this.suspects = suspects;
     }
 
-    public Item[] getWeapons() {
+    public ArrayList<Item> getWeapons() {
         return weapons;
     }
 
-    public void setWeapons(Item[] weapons) {
+    public void setWeapons(ArrayList<Item> weapons) {
         this.weapons = weapons;
     }
 

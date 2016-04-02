@@ -10,9 +10,9 @@ import cit260.murderInTheCity.model.Location;
 import cit260.murderInTheCity.model.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import murderinthecity.MurderInTheCity;
-
 import cit260.murderInTheCity.model.Character;
 import cit260.murderInTheCity.model.Player;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,7 +44,7 @@ public class MapControl {
         }
 
         // set evidence on the map
-        Item[] evidence = MurderInTheCity.getCurrentGame().getEvidence();
+        ArrayList<Item> evidence = MurderInTheCity.getCurrentGame().getEvidence();
         for (Item e : evidence) {
             e.setX(ThreadLocalRandom.current().nextInt(0, 7));
             e.setY(ThreadLocalRandom.current().nextInt(0, 7));
@@ -52,7 +52,7 @@ public class MapControl {
         }
 
         // set suspects on the map
-        Character[] suspects = MurderInTheCity.getCurrentGame().getSuspects();
+        ArrayList<Character> suspects = MurderInTheCity.getCurrentGame().getSuspects();
         for (Character suspect : suspects) {
             suspect.setX(ThreadLocalRandom.current().nextInt(0, 7));
             suspect.setY(ThreadLocalRandom.current().nextInt(0, 7));
@@ -60,7 +60,7 @@ public class MapControl {
         }
 
         // set weapons on the map
-        Item[] weapons = MurderInTheCity.getCurrentGame().getWeapons();
+        ArrayList<Item> weapons = MurderInTheCity.getCurrentGame().getWeapons();
         for (Item weapon : weapons) {
             weapon.setX(ThreadLocalRandom.current().nextInt(0, 7));
             weapon.setY(ThreadLocalRandom.current().nextInt(0, 7));

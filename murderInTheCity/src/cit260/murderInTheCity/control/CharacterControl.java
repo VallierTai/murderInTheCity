@@ -6,6 +6,7 @@
 package cit260.murderInTheCity.control;
 
 import cit260.murderInTheCity.model.Character;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,9 +15,10 @@ import cit260.murderInTheCity.model.Character;
 public class CharacterControl {
 
     public enum Suspects {
-        tempeSuspect1("Jeremy", "He is Ashley's ex-boyfriend who plays baseball at ASU."),
-        tempeSuspect2("Trevor", "He is Ashley's boyfriend"),
-        tempeSuspect3("Lindsey", "She is Ashley's classmate");
+        Jeremy("Jeremy", "He is Ashley's ex-boyfriend who plays baseball at ASU."),
+        Ethan("Ethan", "He is Ashley's boyfriend who plays hockey"),
+        Lindsey("Lindsey", "She is Ashley's classmate who is angry because Ashley"
+                + "was dating Lindsey's ex-boyfriend");
 
         private final String name;
         private final String description;
@@ -55,25 +57,25 @@ public class CharacterControl {
         }
     }
 
-    public static Character[] createSuspectList() {
+    public static ArrayList<Character> createSuspectList() {
 
         // created array(list) of suspects
-        Character[] suspects = new Character[3];
+        ArrayList<Character> suspects = new ArrayList<Character>();
 
         Character suspect1 = new Character();
-        suspect1.setName("?");
-        suspect1.setDescription("?");
-        suspects[Suspects.tempeSuspect1.ordinal()] = suspect1;
+        suspect1.setName(Suspects.Jeremy.name);
+        suspect1.setDescription(Suspects.Jeremy.description);
+        suspects.add(suspect1);
 
         Character suspect2 = new Character();
-        suspect2.setName("?");
-        suspect2.setDescription("?");
-        suspects[Suspects.tempeSuspect2.ordinal()] = suspect2;
+        suspect2.setName(Suspects.Ethan.name);
+        suspect2.setDescription(Suspects.Ethan.description);
+        suspects.add(suspect2);
 
         Character suspect3 = new Character();
-        suspect3.setName("?");
-        suspect3.setDescription("?");
-        suspects[Suspects.tempeSuspect3.ordinal()] = suspect3;
+        suspect3.setName(Suspects.Lindsey.name);
+        suspect3.setDescription(Suspects.Lindsey.description);
+        suspects.add(suspect3);
 
         return suspects;
     }
