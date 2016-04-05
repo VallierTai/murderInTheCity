@@ -6,7 +6,10 @@
 package cit260.murderInTheCity.view;
 
 import cit260.murderInTheCity.control.GameControl;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import murderinthecity.MurderInTheCity;
 
 /**
@@ -34,9 +37,15 @@ public class MainMenuView extends View {
         value = value.toUpperCase(); // convert choice to upper case
 
         switch (value) {
-            case "N": // create and starta new game
-                this.startNewGame();
-                break;
+            case "N": {
+                try {
+                    // create and starta new game
+                    this.startNewGame();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            break;
             case "G": // get and start an exisiting game
                 this.startExistingGame();
                 break;
@@ -53,7 +62,7 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws IOException {
         GameControl.createNewGame(MurderInTheCity.getPlayer());
 
         //display the game menu

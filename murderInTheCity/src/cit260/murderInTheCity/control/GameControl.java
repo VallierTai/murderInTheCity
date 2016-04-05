@@ -13,6 +13,7 @@ import cit260.murderInTheCity.model.Item;
 import cit260.murderInTheCity.model.Map;
 import cit260.murderInTheCity.model.Player;
 import cit260.murderInTheCity.model.Character;
+import cit260.murderInTheCity.view.savePlayersName;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -48,7 +49,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws IOException {
         // create new game
         Game game = new Game();
         // save in MurderInTheCity
@@ -109,6 +110,8 @@ public class GameControl {
         MapControl.initializeMap(tempeMap);
         // save map in game
         game.setMaps(maps);
+        
+        savePlayersName.saveName();
     }
 
     public static ArrayList<Item> getEvidenceList() {
